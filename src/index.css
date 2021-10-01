@@ -13,6 +13,8 @@
 .headerSecond {
     padding-top: 10px;
     padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 .iconoHeader {
     height: 27px;
@@ -33,7 +35,7 @@
 }
 .iconoLogin {
     height: 30px;
-    width: 30px;
+    width: 50px;
 }
 .shoppingCart {
     position: relative;
@@ -161,8 +163,8 @@ p {
         display: none;
     }
     .iconoLogin {
-        height: 70px;
-        width: 70px;
+        height: 30px;
+        width: 51px;
     }
 }
 @media (max-width: 720px) {

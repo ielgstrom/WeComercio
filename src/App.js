@@ -7,7 +7,7 @@ function App() {
         <>
             <header className="container-fluid">
                 <div className="row headerPrincipal">
-                    <h1 className="col-2">web</h1>
+                    <h1 className="col-2">Mi web</h1>
                     <form className="buscador col-8 col-lg-6">
                         <div className="form-group controlBuscador">
                             <input
@@ -19,7 +19,7 @@ function App() {
                     </form>
                     <form className=" col-2 col-lg-4">
                         <div className="row controlLogin">
-                            <div className="loginInicioUser col-5">
+                            <div className="loginInicioUser col-4">
                                 <input
                                     type="text"
                                     className="form-control "
@@ -27,19 +27,19 @@ function App() {
                                 />
                             </div>
 
-                            <div className="loginInicioContra col-5">
+                            <div className="loginInicioContra col-4">
                                 <input
-                                    type="text"
+                                    type="password"
                                     className="form-control"
                                     placeholder="Contraseña"
                                 />
                             </div>
                             <BiLogIn
-                                className="iconoLogin col-1"
+                                className="iconoLogin col-2"
                                 type="button"
                             />
                             <FiUserPlus
-                                className="iconoLogin col-1"
+                                className="iconoLogin col-2"
                                 type="button"
                             />
                         </div>

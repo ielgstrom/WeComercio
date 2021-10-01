@@ -80,7 +80,8 @@ export const ProductosPrincipales = () => {
                     100% seria y solo está hecha para enseñar y mostrar mis
                     habilidades con HTML, CSS, JS, REACT entre otros. He hecho
                     servir React como framework para el Front-End, MongoDB como
-                    base de datos y NODE con la libreria Express como Back-End.
+                    base de datos y NODE con la libreria Express como
+                    Back-End.ok t
                 </p>
                 <div
                     className="categoriasBuscador col-12 col-md-3 "
