@@ -2,6 +2,9 @@
 .headerSecond {
     border-bottom: 1px solid rgb(172, 172, 172);
     background-color: white !important;
+
+    margin-right: 0 !important;
+    margin-left: 0 !important;
 }
 .headerPrincipal {
     padding-top: 10px;
@@ -29,11 +32,13 @@
     padding-right: 50px;
 }
 .iconoLogin {
-    font-size: 2em;
+    height: 30px;
+    width: 30px;
 }
 .shoppingCart {
     position: relative;
-    left: 90%;
+    /* display: block;
+    right: 2px; */
 }
 .contenidoCentral {
     margin-right: 200px;
@@ -43,12 +48,12 @@
 }
 footer {
     background-color: rgb(182, 182, 182);
-    height: 150px;
+    height: 190px;
 }
 
 .productoIndividual {
-    /* border-style: solid; */
-    background-color: rgb(184, 184, 184);
+    border: 10px solid rgb(255, 255, 255);
+    background-color: rgb(221, 221, 221);
     border-radius: 5px;
     margin-bottom: 20px;
 }
@@ -76,10 +81,7 @@ header {
 p {
     font-size: 1.5em;
 }
-/* .form-control:focus {
-    outline: none;
-    box-shadow: none;
-} */
+
 ul {
     list-style-type: none;
     margin-right: 40px !important;
@@ -105,9 +107,83 @@ small {
     margin: 5px;
     font-weight: bold;
 }
+.contacteFooter {
+    display: inline;
+    text-align: center;
+}
+.contacteFooter li {
+    display: block;
+    text-align: left;
+    padding-left: 70px;
+    font-size: 0.6em;
+    font-weight: normal;
+}
+.iconoFooter {
+    margin-right: 6px;
+    width: 20px;
+    height: 20px;
+    color: black;
+}
+.iconoFooter:hover {
+    color: rgb(68, 68, 68);
+}
+.listaMainFooter > li {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.categoriasBuscador {
+    background-color: rgb(250, 202, 81);
+    height: 50px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 20px;
+    justify-content: center;
+    border: 2px solid rgb(0, 0, 0);
+    line-height: 42px;
+    margin-bottom: 10px;
+}
+.categoriasBuscador:hover {
+    background-color: white;
+    border: 2px solid rgb(240, 182, 34);
+    font-size: 22px;
+    font-weight: 500;
+}
+p {
+    text-align: justify;
+}
 @media (max-width: 992px) {
     .contenidoCentral {
         margin-right: 100px;
         margin-left: 100px;
     }
+    .loginInicioContra,
+    .loginInicioUser {
+        display: none;
+    }
+    .iconoLogin {
+        height: 70px;
+        width: 70px;
+    }
 }
+@media (max-width: 720px) {
+    .contenidoCentral {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    p {
+        display: none;
+    }
+    .headerPrincipal,
+    .headerSecond {
+        margin-left: 0;
+    }
+    header {
+        padding: 0;
+    }
+}
+/* @media (max-width: 1200px) {
+    .loginInicioContra,
+    .loginInicioUser {
+        display: none;
+    }
+} */

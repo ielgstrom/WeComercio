@@ -8,7 +8,7 @@ function App() {
             <header className="container-fluid">
                 <div className="row headerPrincipal">
                     <h1 className="col-2">web</h1>
-                    <form className="buscador col-6">
+                    <form className="buscador col-8 col-lg-6">
                         <div className="form-group controlBuscador">
                             <input
                                 type="text"
@@ -17,9 +17,9 @@ function App() {
                             />
                         </div>
                     </form>
-                    <form className="col-4">
+                    <form className=" col-2 col-lg-4">
                         <div className="row controlLogin">
-                            <div className="col-5">
+                            <div className="loginInicioUser col-5">
                                 <input
                                     type="text"
                                     className="form-control "
@@ -27,7 +27,7 @@ function App() {
                                 />
                             </div>
 
-                            <div className="col-5">
+                            <div className="loginInicioContra col-5">
                                 <input
                                     type="text"
                                     className="form-control"
@@ -68,7 +68,7 @@ function App() {
                 <ProductosPrincipales />
             </div>
             <footer className="container-fluid">
-                <Footer classNmae="row" />
+                <Footer className="row" />
             </footer>
         </>
     );
