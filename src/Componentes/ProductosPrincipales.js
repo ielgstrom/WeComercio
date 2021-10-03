@@ -1,77 +1,6 @@
+import { Link } from "react-router-dom";
 import pandoras_box from "../pandoras_box.jpg";
-export const ProductosPrincipales = () => {
-    const productos = [
-        {
-            nombre: "Caja de Pandora",
-            precio: "5€",
-            categoria: "objetos malditos",
-            descripción: "Caja normal",
-            id: "1",
-        },
-        {
-            nombre: "Caja de Pandora",
-            precio: "5€",
-            categoria: "objetos malditos",
-            descripción: "Caja normal",
-            id: "1",
-        },
-        {
-            nombre: "Caja de sustos",
-            precio: "53€",
-            categoria: "objetos malditos",
-            descripción: "Caja normal pero da sustos ahora",
-            id: "2",
-        },
-        {
-            nombre: "8 magico",
-            precio: "52€",
-            categoria: "curiosidades de suerte",
-            descripción: "Bola que te da la respuesta a tus preguntas",
-            id: "3",
-        },
-        {
-            nombre: "Caja de Pandora",
-            precio: "5€",
-            categoria: "objetos malditos",
-            descripción: "Caja normal",
-            id: "4",
-        },
-        {
-            nombre: "Bastón de satanás",
-            precio: "530€",
-            categoria: "pertenencias de satanas",
-            descripción: "Bastón con todas los poderes en la mano de satanás",
-            id: "5",
-        },
-        {
-            nombre: "Caja de sustos",
-            precio: "53€",
-            categoria: "objetos malditos",
-            descripción: "Caja normal pero da sustos ahora",
-            id: "2",
-        },
-        {
-            nombre: "8 magico",
-            precio: "52€",
-            categoria: "curiosidades de suerte",
-            descripción: "Bola que te da la respuesta a tus preguntas",
-            id: "3",
-        },
-        {
-            nombre: "Caja de Pandora",
-            precio: "5€",
-            categoria: "objetos malditos",
-            descripción: "Caja normal",
-            id: "4",
-        },
-        {
-            nombre: "Bastón de satanás",
-            precio: "530€",
-            categoria: "pertenencias de satanas",
-            descripción: "Bastón con todas los poderes en la mano de satanás",
-            id: "5",
-        },
-    ];
+export const ProductosPrincipales = ({ productos }) => {
     return (
         <>
             <div className="productos row justify-content-between p-0">
@@ -80,8 +9,7 @@ export const ProductosPrincipales = () => {
                     100% seria y solo está hecha para enseñar y mostrar mis
                     habilidades con HTML, CSS, JS, REACT entre otros. He hecho
                     servir React como framework para el Front-End, MongoDB como
-                    base de datos y NODE con la libreria Express como
-                    Back-End.ok t
+                    base de datos y NODE con la libreria Express como Back-End
                 </p>
                 <div
                     className="categoriasBuscador col-12 col-md-3 "
@@ -103,9 +31,10 @@ export const ProductosPrincipales = () => {
                 </div>
                 {productos.map((producto) => (
                     <>
-                        <div
+                        <Link
                             className="productoIndividual col-12 col-md-6 col-lg-4 "
                             type="button"
+                            to={`/producto/${producto.id}`}
                         >
                             <img
                                 src={pandoras_box}
@@ -120,7 +49,7 @@ export const ProductosPrincipales = () => {
                                     {producto.precio}
                                 </small>
                             </div>
-                        </div>
+                        </Link>
                     </>
                 ))}
             </div>
