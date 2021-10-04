@@ -6,6 +6,7 @@ import ProductosPrincipales from "./Componentes/ProductosPrincipales";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import React, { useState } from "react";
+import NewUser from "./Componentes/NewUser";
 function App() {
     const [productos, setProductos] = useState([
         {
@@ -103,21 +104,16 @@ function App() {
     return (
         <>
             <Router>
-                <Header />
                 <Switch>
                     <Route exact path="/">
-                        <div className="contenidoCentral">
-                            <ProductosPrincipales productos={productos} />
-                        </div>
+                        <ProductosPrincipales productos={productos} />
                     </Route>
                     <Route exact path="/producto/:idprod">
                         <ProductoIndividual productos={productos} />
                     </Route>
+                    <Route path="/newuser" component={NewUser} />
                     <Route path="*" component={Pag404} />
                 </Switch>
-                <footer className="container-fluid">
-                    <Footer className="row" />
-                </footer>
             </Router>
         </>
     );

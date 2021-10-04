@@ -1,7 +1,17 @@
 import { BiWorld, BiLogIn } from "react-icons/bi";
 import { FiShoppingCart, FiUserPlus } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { useState } from "react";
 export const Header = () => {
+    const [textBuscador, setTextBuscador] = useState({ busqueda: "" });
+    const handleSearchChange = (e) => {
+        e.preventDefault();
+        setTextBuscador({ busqueda: e.target.value });
+    };
+    const handleSubmit = (e) => {
+        // e.preventDefault();
+        return <Redirect to="/componentes/0" />;
+    };
     return (
         <header className="container-fluid">
             <div className="row headerPrincipal">
@@ -10,12 +20,18 @@ export const Header = () => {
                         Mi web
                     </Link>
                 </h1>
-                <form className="buscador col-8 col-lg-6">
+                <form
+                    className="buscador col-8 col-lg-6"
+                    onSubmit={handleSubmit}
+                >
                     <div className="form-group controlBuscador">
                         <input
                             type="text"
                             className="form-control"
                             placeholder="Buscar Producto"
+                            value={textBuscador.busqueda}
+                            onChange={handleSearchChange}
+                            formAction="/producto/0"
                         />
                     </div>
                 </form>
@@ -37,10 +53,12 @@ export const Header = () => {
                             />
                         </div>
                         <BiLogIn className="iconoLogin col-2" type="button" />
-                        <FiUserPlus
-                            className="iconoLogin col-2"
-                            type="button"
-                        />
+                        <Link to="/newuser" className="logoWeb">
+                            <FiUserPlus
+                                className="iconoLogin col-2"
+                                type="button"
+                            />
+                        </Link>
                     </div>
                 </form>
             </div>

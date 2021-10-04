@@ -50,12 +50,46 @@ h1,
 .contenidoCentral {
     margin-right: 200px;
     margin-left: 200px;
-    margin-top: 10px;
-    padding-top: 200px;
+    margin-top: 210px;
+}
+.contenidoCentral.formSignUp {
+    width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid rgb(163, 163, 163);
+    padding: 40px;
+    border-radius: 32px;
+    box-shadow: 53px 25px 25px rgba(194, 194, 194, 0.33);
+}
+.inputNewUser {
+    margin-bottom: 15px;
+    margin-top: 25px;
+    font-size: 1.3em;
+}
+.inputNewUser:focus {
+    outline: none !important;
+}
+.botonNewUser {
+    margin-top: 20px;
+    width: 40%;
+    background-color: orange !important;
+    color: black !important;
+    border: 2px solid orange !important;
+    transform: translateX(78%);
+    font-weight: 500 !important;
+    font-size: 1.2em !important;
+    border-radius: 8px !important;
+}
+.botonNewUser:hover {
+    background-color: white !important;
 }
 footer {
     background-color: rgb(182, 182, 182);
     height: 190px;
+}
+.botonHoverAble {
+    transition: background-color 5s;
 }
 
 .productoIndividual {
@@ -164,9 +198,8 @@ p {
 }
 .error404 {
     display: block;
-    height: calc(100vh - 190px);
-    padding-top: 120px;
-    padding-left: 20px;
+    margin-left: 50px;
+    margin-top: 20px;
     font-size: 50px;
 }
 .imagenProducto {
@@ -197,9 +230,9 @@ p {
     border: 2px solid orange;
     margin-right: 10px;
     text-align: center;
+    transition: background-color 0.24s;
 }
 .botonAñadirCarrito:hover {
-    border: 2px solid orange;
     background-color: white;
 }
 .estrellasValoracion {
