@@ -1,16 +1,21 @@
 import { BiWorld, BiLogIn } from "react-icons/bi";
 import { FiShoppingCart, FiUserPlus } from "react-icons/fi";
-import { Link, Redirect } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
 export const Header = () => {
+    let history = useHistory();
     const [textBuscador, setTextBuscador] = useState({ busqueda: "" });
     const handleSearchChange = (e) => {
         e.preventDefault();
         setTextBuscador({ busqueda: e.target.value });
     };
     const handleSubmit = (e) => {
-        // e.preventDefault();
-        return <Redirect to="/componentes/0" />;
+        e.preventDefault();
+        history.push(`/busqueda?item=${textBuscador.busqueda}`);
+    };
+    const [verCategorias, setVerCategorias] = useState(true);
+    const viewCategorias = () => {
+        setVerCategorias(!verCategorias);
     };
     return (
         <header className="container-fluid">
@@ -53,24 +58,17 @@ export const Header = () => {
                             />
                         </div>
                         <BiLogIn className="iconoLogin col-2" type="button" />
-                        <Link to="/newuser" className="logoWeb">
-                            <FiUserPlus
-                                className="iconoLogin col-2"
-                                type="button"
-                            />
+                        <Link to="/newuser" className="logoWeb col-2">
+                            <FiUserPlus className="iconoLogin " type="button" />
                         </Link>
                     </div>
                 </form>
             </div>
             <div className="row headerSecond">
                 <nav className="col-4">
-                    <small>Categorias</small>
-                    {/* <ul>
-                            <li>1</li>
-                            <li>2</li>
-                            <li>3</li>
-                            <li>4</li>
-                        </ul> */}
+                    <small type="button" onClick={viewCategorias}>
+                        Categorias
+                    </small>
                 </nav>
                 <BiWorld className="col-4 iconoHeader" />
                 <div className="col-4 iconoHeader">
@@ -80,6 +78,17 @@ export const Header = () => {
                     />
                 </div>
             </div>
+            {verCategorias && (
+                <div className="row dropdownMenu">
+                    <ul>
+                        <li>Objeto maldito</li>
+                        <li>Objeto bendecido</li>
+                        <li>Fragmentos del Universo</li>
+                        <li>Restos de Dioses</li>
+                        <li>Desconocido </li>
+                    </ul>
+                </div>
+            )}
         </header>
     );
 };

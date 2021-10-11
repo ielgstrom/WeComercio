@@ -5,10 +5,10 @@ import { MdAddShoppingCart } from "react-icons/md";
 import { BiGift } from "react-icons/bi";
 import Header from "./Header";
 import Footer from "./Footer";
-export const ProductoIndividual = ({ productos }) => {
+export const ProductoIndividual = ({ listaProductos }) => {
     const { idprod } = useParams();
-    const productoSeleccionado = productos.filter(
-        (elemento) => elemento.id.toString() === idprod
+    const productoSeleccionado = listaProductos.filter(
+        (elemento) => elemento._id.toString() === idprod
     );
     return (
         <>
@@ -23,44 +23,44 @@ export const ProductoIndividual = ({ productos }) => {
                         />
                     </div>
                     <div className="col-6">
-                        <h2>{productoSeleccionado[0].nombre}</h2>
+                        <h2>{productoSeleccionado[0].Nombre}</h2>
                         <h2 className="precioProducto">
-                            {productoSeleccionado[0].precio}
+                            {productoSeleccionado[0].Precio}
                         </h2>
                         <h2 className="categoriaProducto">
-                            {productoSeleccionado[0].categoria}
+                            {productoSeleccionado[0].Categoria}
                         </h2>
                         <div className="estrellasValoracion">
-                            {productoSeleccionado[0].estrellas >= 1 && (
+                            {productoSeleccionado[0].Estrellas >= 1 && (
                                 <FaStar />
                             )}
-                            {productoSeleccionado[0].estrellas <= 1 && (
+                            {productoSeleccionado[0].Estrellas <= 1 && (
                                 <FaRegStar />
                             )}
-                            {productoSeleccionado[0].estrellas >= 2 && (
+                            {productoSeleccionado[0].Estrellas >= 2 && (
                                 <FaStar />
                             )}
-                            {productoSeleccionado[0].estrellas <= 2 && (
+                            {productoSeleccionado[0].Estrellas <= 2 && (
                                 <FaRegStar />
                             )}
-                            {productoSeleccionado[0].estrellas >= 3 && (
+                            {productoSeleccionado[0].Estrellas >= 3 && (
                                 <FaStar />
                             )}
-                            {productoSeleccionado[0].estrellas <= 3 && (
+                            {productoSeleccionado[0].Estrellas <= 3 && (
                                 <FaRegStar />
                             )}
-                            {productoSeleccionado[0].estrellas >= 4 && (
+                            {productoSeleccionado[0].Estrellas >= 4 && (
                                 <FaStar />
                             )}
-                            {productoSeleccionado[0].estrellas <= 4 && (
+                            {productoSeleccionado[0].Estrellas <= 4 && (
                                 <FaRegStar />
                             )}
-                            {productoSeleccionado[0].estrellas >= 5 && (
+                            {productoSeleccionado[0].Estrellas >= 5 && (
                                 <FaStar />
                             )}
                         </div>
                         <p className="descripcionProducto">
-                            {productoSeleccionado[0].descripción}
+                            {productoSeleccionado[0].Descripción}
                         </p>
                         <div className="row">
                             <div

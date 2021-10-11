@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import pandoras_box from "../pandoras_box.jpg";
 import Footer from "./Footer";
 import Header from "./Header";
-export const ProductosPrincipales = ({ productos }) => {
+export const ProductosPrincipales = ({ listaProductos }) => {
     return (
         <>
             <Header />
@@ -34,12 +34,12 @@ export const ProductosPrincipales = ({ productos }) => {
                     >
                         Más vendido
                     </div>
-                    {productos.map((producto) => (
+                    {listaProductos.map((producto) => (
                         <>
                             <Link
                                 className="productoIndividual col-12 col-md-6 col-lg-4 "
                                 type="button"
-                                to={`/producto/${producto.id}`}
+                                to={`/producto/${producto._id}`}
                             >
                                 <img
                                     src={pandoras_box}
@@ -48,10 +48,10 @@ export const ProductosPrincipales = ({ productos }) => {
                                 />
                                 <div className="flex-container space-between">
                                     <small className="flex-item">
-                                        {producto.nombre}
+                                        {producto.Nombre}
                                     </small>
                                     <small className="flex-item">
-                                        {producto.precio}
+                                        {producto.Precio}
                                     </small>
                                 </div>
                             </Link>

@@ -10,6 +10,7 @@ h1,
 
     margin-right: 0 !important;
     margin-left: 0 !important;
+    /* z-index: 6; */
 }
 .headerPrincipal {
     padding-top: 10px;
@@ -104,15 +105,22 @@ footer {
     background-color: white;
     color: black;
     text-decoration: none;
+    /* z-index: 0; */
 }
 
 .productoIndividual:hover img {
     opacity: 0.5;
 }
-
+img {
+    max-width: 100%;
+    height: auto;
+}
 .productoIndividual.productoIndividual {
     padding-left: 0;
     padding-right: 0;
+}
+.noBusqueda {
+    margin-bottom: calc(100vh - 435px);
 }
 header {
     position: fixed;
@@ -239,6 +247,32 @@ p {
     display: inline;
 
     height: 50%;
+}
+.dropdownMenu {
+    display: block;
+    position: absolute;
+    top: 109px;
+    left: 28px;
+    font-size: 1.2em;
+    background-color: rgb(255, 255, 255);
+    padding-left: 2px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    border: 1px solid grey;
+}
+.dropdownMenu ul {
+    margin-left: 20px !important;
+    padding-top: 0 !important;
+    /* padding-right: 50px !important; */
+}
+.dropdownMenu li {
+    padding: 10px;
+    text-align: left;
+    border-radius: 5px;
+}
+.dropdownMenu li:hover {
+    font-weight: 600;
+    background-color: orange;
 }
 @media (max-width: 992px) {
     .contenidoCentral {
