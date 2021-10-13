@@ -34,6 +34,10 @@ export const ProductosPrincipales = ({ listaProductos }) => {
                     >
                         Más vendido
                     </div>
+                    {listaProductos[0] === undefined && (
+                        <div className="loading">Cargando Productos...</div>
+                    )}
+
                     {listaProductos.map((producto) => (
                         <>
                             <Link

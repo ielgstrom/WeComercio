@@ -1,8 +1,9 @@
 import { BiWorld, BiLogIn } from "react-icons/bi";
 import { FiShoppingCart, FiUserPlus } from "react-icons/fi";
 import { Link, useHistory } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 export const Header = () => {
+    const ref = useRef();
     let history = useHistory();
     const [textBuscador, setTextBuscador] = useState({ busqueda: "" });
     const handleSearchChange = (e) => {
@@ -13,15 +14,32 @@ export const Header = () => {
         e.preventDefault();
         history.push(`/busqueda?item=${textBuscador.busqueda}`);
     };
-    const [verCategorias, setVerCategorias] = useState(true);
+    const [verCategorias, setVerCategorias] = useState(false);
     const viewCategorias = () => {
         setVerCategorias(!verCategorias);
     };
+
+    //intento de que al clickar fuera, se quitara el menu
+    // useEffect(() => {
+    //     const checkIfClickedOutside = (e) => {
+    //         if (
+    //             verCategorias &&
+    //             ref.current &&
+    //             !ref.current.contains(e.target)
+    //         ) {
+    //             setVerCategorias(true);
+    //         }
+    //     };
+    //     document.addEventListener("mousedown", checkIfClickedOutside);
+    //     return () => {
+    //         document.removeEventListener("mousedown", checkIfClickedOutside);
+    //     };
+    // }, [verCategorias]);
     return (
         <header className="container-fluid">
             <div className="row headerPrincipal">
                 <h1 className="col-2">
-                    <Link className="logoWeb" to="/">
+                    <Link className="defaultearLink" to="/">
                         Mi web
                     </Link>
                 </h1>
@@ -58,7 +76,7 @@ export const Header = () => {
                             />
                         </div>
                         <BiLogIn className="iconoLogin col-2" type="button" />
-                        <Link to="/newuser" className="logoWeb col-2">
+                        <Link to="/newuser" className="defaultearLink col-2">
                             <FiUserPlus className="iconoLogin " type="button" />
                         </Link>
                     </div>
@@ -81,11 +99,41 @@ export const Header = () => {
             {verCategorias && (
                 <div className="row dropdownMenu">
                     <ul>
-                        <li>Objeto maldito</li>
-                        <li>Objeto bendecido</li>
-                        <li>Fragmentos del Universo</li>
-                        <li>Restos de Dioses</li>
-                        <li>Desconocido </li>
+                        <Link
+                            className="defaultearLink"
+                            to="/busquedaCategorias/Objeto-maldito"
+                            onClick={() => setVerCategorias(false)}
+                        >
+                            <li>Objeto maldito</li>
+                        </Link>
+                        <Link
+                            className="defaultearLink"
+                            to="/busquedaCategorias/Objeto-bendecido"
+                            onClick={() => setVerCategorias(false)}
+                        >
+                            <li>Objeto bendecido</li>
+                        </Link>
+                        <Link
+                            className="defaultearLink"
+                            to="/busquedaCategorias/Fragmentos-del-Universo"
+                            onClick={() => setVerCategorias(false)}
+                        >
+                            <li>Fragmentos del Universo</li>
+                        </Link>
+                        <Link
+                            className="defaultearLink"
+                            to="/busquedaCategorias/Resto-de-Dioses"
+                            onClick={() => setVerCategorias(false)}
+                        >
+                            <li>Resto de Dioses</li>
+                        </Link>
+                        <Link
+                            className="defaultearLink"
+                            to="/busquedaCategorias/Desconocido"
+                            onClick={() => setVerCategorias(false)}
+                        >
+                            <li>Desconocido</li>
+                        </Link>{" "}
                     </ul>
                 </div>
             )}

@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import NewUser from "./Componentes/NewUser";
 import Busqueda from "./Componentes/Busqueda";
+import BusquedaCategoria from "./Componentes/BusquedaCategoria";
 function App() {
     const [listaProductos, setListaProductos] = useState([]);
 
@@ -33,6 +34,10 @@ function App() {
                     <Route exact path="/busqueda">
                         <Busqueda listaProductos={listaProductos} />
                     </Route>
+                    <Route exact path="/busquedaCategorias/:idCateg">
+                        <BusquedaCategoria listaProductos={listaProductos} />
+                    </Route>
+
                     <Route path="*" component={Pag404} />
                 </Switch>
             </Router>

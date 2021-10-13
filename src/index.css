@@ -1,5 +1,7 @@
-h1,
-.logoWeb {
+h1 {
+    font-size: 1rem;
+}
+.defaultearLink {
     color: black !important;
     text-decoration: none;
 }
@@ -185,20 +187,20 @@ small {
     font-weight: bold;
 }
 .categoriasBuscador {
-    background-color: rgb(250, 202, 81);
+    background-color: orange;
     height: 50px;
     border-radius: 8px;
     text-align: center;
     font-size: 20px;
     justify-content: center;
-    border: 2px solid rgb(0, 0, 0);
+    border: 2px solid orange;
     line-height: 42px;
     margin-bottom: 10px;
 }
 .categoriasBuscador:hover {
     background-color: white;
-    border: 2px solid rgb(240, 182, 34);
-    font-size: 22px;
+    border: 2px solid orange;
+    font-size: 21px;
     font-weight: 500;
 }
 p {
@@ -211,9 +213,10 @@ p {
     font-size: 50px;
 }
 .imagenProducto {
-    width: 80%;
     display: block;
-    align-items: flex-end;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 .descripcionProducto {
     font-size: 1.2em;
@@ -259,6 +262,8 @@ p {
     padding-bottom: 10px;
     padding-right: 20px;
     border: 1px solid grey;
+    border-radius: 5px;
+    transition: all 2s ease-in;
 }
 .dropdownMenu ul {
     margin-left: 20px !important;
@@ -274,6 +279,13 @@ p {
     font-weight: 600;
     background-color: orange;
 }
+.loading {
+    font-size: 3rem;
+    margin-top: 40px !important;
+    display: inline;
+    text-align: center;
+    margin-bottom: 30px !important;
+}
 @media (max-width: 992px) {
     .contenidoCentral {
         margin-right: 100px;
@@ -288,14 +300,12 @@ p {
         width: 51px;
     }
 }
-@media (max-width: 720px) {
+@media (max-width: 768px) {
     .contenidoCentral {
         margin-left: 20px;
         margin-right: 20px;
     }
-    p {
-        display: none;
-    }
+
     .headerPrincipal,
     .headerSecond {
         margin-left: 0;
@@ -303,10 +313,18 @@ p {
     header {
         padding: 0;
     }
-}
-/* @media (max-width: 1200px) {
-    .loginInicioContra,
-    .loginInicioUser {
-        display: none;
+    .botonAñadirCarrito {
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
-} */
+    .nombreProducto,
+    .categoriaProducto,
+    .estrellasValoracion,
+    .descripcionProducto {
+        text-align: center;
+        font-size: 1.5em;
+    }
+    .nombreProducto {
+        font-size: 1.2em;
+    }
+}

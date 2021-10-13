@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import pandoras_box from "../pandoras_box.jpg";
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { MdAddShoppingCart } from "react-icons/md";
@@ -14,21 +14,26 @@ export const ProductoIndividual = ({ listaProductos }) => {
         <>
             <Header />
             <div className=" container contenidoCentral">
-                <div className="row">
-                    <div className="col-6">
+                <div className="row contenidoProductoIndividual">
+                    <div className="col-12 col-md-6">
                         <img
                             src={pandoras_box}
                             alt="imagen"
                             className="imagenProducto"
                         />
                     </div>
-                    <div className="col-6">
+                    <div className="nombreProducto col-12 col-md-6">
                         <h2>{productoSeleccionado[0].Nombre}</h2>
                         <h2 className="precioProducto">
                             {productoSeleccionado[0].Precio}
                         </h2>
                         <h2 className="categoriaProducto">
-                            {productoSeleccionado[0].Categoria}
+                            <Link
+                                className="defaultearLink"
+                                to={`/busquedaCategorias/${productoSeleccionado[0].Categoria}`}
+                            >
+                                {productoSeleccionado[0].Categoria}
+                            </Link>
                         </h2>
                         <div className="estrellasValoracion">
                             {productoSeleccionado[0].Estrellas >= 1 && (
@@ -64,14 +69,14 @@ export const ProductoIndividual = ({ listaProductos }) => {
                         </p>
                         <div className="row">
                             <div
-                                className="col-4 botonAñadirCarrito botonHoverAble"
+                                className="col-12 col-md-4 botonAñadirCarrito botonHoverAble"
                                 type="button"
                             >
                                 <MdAddShoppingCart className="botonHoverAble" />{" "}
                                 Añadir al Carrito
                             </div>
                             <div
-                                className="col-4 botonAñadirCarrito"
+                                className="col-12 col-md-4 botonAñadirCarrito"
                                 type="button"
                             >
                                 <BiGift className="botonHoverAble" /> Comprar
