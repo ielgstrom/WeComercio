@@ -12,7 +12,7 @@ function App() {
     useEffect(() => {
         const fetchData = async () => {
             const respuesta = await fetch(
-                "http://back-wecomerce.herokuapp.com/producto"
+                "https://back-wecomerce.herokuapp.com/producto"
             );
             const datos = await respuesta.json();
             setListaProductos(datos);
