@@ -37,7 +37,7 @@ export const Busqueda = ({ listaProductos }) => {
                                             {productoBuscado.Nombre}
                                         </small>
                                         <small className="flex-item">
-                                            {productoBuscado.Precio}
+                                            {`${productoBuscado.Precio}€`}
                                         </small>
                                     </div>
                                 </Link>

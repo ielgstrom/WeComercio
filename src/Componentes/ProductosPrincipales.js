@@ -55,7 +55,7 @@ export const ProductosPrincipales = ({ listaProductos }) => {
                                         {producto.Nombre}
                                     </small>
                                     <small className="flex-item">
-                                        {producto.Precio}
+                                        {`${producto.Precio}€`}
                                     </small>
                                 </div>
                             </Link>

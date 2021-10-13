@@ -6,6 +6,8 @@ import React, { useState, useEffect } from "react";
 import NewUser from "./Componentes/NewUser";
 import Busqueda from "./Componentes/Busqueda";
 import BusquedaCategoria from "./Componentes/BusquedaCategoria";
+import { ModeladoContext } from "./ProductosContext";
+import ListaCarrito from "./Componentes/ListaCarrito";
 function App() {
     const [listaProductos, setListaProductos] = useState([]);
 
@@ -21,7 +23,7 @@ function App() {
     }, []);
 
     return (
-        <>
+        <ModeladoContext>
             <Router>
                 <Switch>
                     <Route exact path="/">
@@ -31,6 +33,7 @@ function App() {
                         <ProductoIndividual listaProductos={listaProductos} />
                     </Route>
                     <Route exact path="/newuser" component={NewUser} />
+                    <Route exact path="/Carrito" component={ListaCarrito} />
                     <Route exact path="/busqueda">
                         <Busqueda listaProductos={listaProductos} />
                     </Route>
@@ -41,7 +44,7 @@ function App() {
                     <Route path="*" component={Pag404} />
                 </Switch>
             </Router>
-        </>
+        </ModeladoContext>
     );
 }
 

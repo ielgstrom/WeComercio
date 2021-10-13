@@ -1,9 +1,11 @@
 import { BiWorld, BiLogIn } from "react-icons/bi";
 import { FiShoppingCart, FiUserPlus } from "react-icons/fi";
 import { Link, useHistory } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
+import { ProductosContext } from "../ProductosContext";
 export const Header = () => {
-    const ref = useRef();
+    const [listaCarrito, setListaCarrito] = useContext(ProductosContext);
+
     let history = useHistory();
     const [textBuscador, setTextBuscador] = useState({ busqueda: "" });
     const handleSearchChange = (e) => {
@@ -90,10 +92,18 @@ export const Header = () => {
                 </nav>
                 <BiWorld className="col-4 iconoHeader" />
                 <div className="col-4 iconoHeader">
-                    <FiShoppingCart
-                        type="button"
-                        className="iconoHeader shoppingCart"
-                    />
+                    <Link to="/Carrito" className="defaultearLink">
+                        {listaCarrito.length === 0 && <div></div>}
+                        {listaCarrito.length !== 0 && (
+                            <div className="numeroCarrito">
+                                {listaCarrito.length}
+                            </div>
+                        )}
+                        <FiShoppingCart
+                            type="button"
+                            className="iconoHeader shoppingCart"
+                        />
+                    </Link>
                 </div>
             </div>
             {verCategorias && (
