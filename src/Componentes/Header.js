@@ -114,7 +114,9 @@ export const Header = () => {
                             to="/busquedaCategorias/Objeto-maldito"
                             onClick={() => setVerCategorias(false)}
                         >
-                            <li>Objeto maldito</li>
+                            <li className="tituloMenuDropdown">
+                                Objeto maldito
+                            </li>
                         </Link>
                         <Link
                             className="defaultearLink"

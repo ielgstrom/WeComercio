@@ -80,7 +80,7 @@ export const ListaCarrito = () => {
         <>
             <Header />
             <div className="container contenidoCentral">
-                <h2>Lista de la compra</h2>
+                <h2 className="tituloListaCompra">Lista de la compra</h2>
                 <div className="row">
                     <h3 className="col-7">Producto</h3>
                     <h3 className="col-1">Precio</h3>
@@ -91,8 +91,10 @@ export const ListaCarrito = () => {
                 {listaCarrito.map((producto, i) => (
                     <>
                         <div className="row productoIndivCompra">
-                            <div className="col-7">{producto.Nombre}</div>
-                            <div className="col-1">{`${producto.Precio}€`}</div>
+                            <div className="col-5 col-md-7 nombreProductoCarrito">
+                                {producto.Nombre}
+                            </div>
+                            <div className="col-2 col-md-1">{`${producto.Precio}€`}</div>
                             <div className="col-2">
                                 <form>
                                     <input
@@ -101,6 +103,7 @@ export const ListaCarrito = () => {
                                         onClick={() =>
                                             disminuirCantidad(producto, i)
                                         }
+                                        className="botonesMasMenosCarrito"
                                     />
                                     <input
                                         type="number"
@@ -118,10 +121,11 @@ export const ListaCarrito = () => {
                                         onClick={() =>
                                             augmentarCantidad(producto, i)
                                         }
+                                        className="botonesMasMenosCarrito"
                                     />
                                 </form>
                             </div>
-                            <div className="col-1">
+                            <div className="col-2 col-md-1">
                                 {`${
                                     producto.Precio *
                                     listaCarrito[i].numerodeCompras
@@ -139,7 +143,7 @@ export const ListaCarrito = () => {
 
                 <div className="row justify-content-center">
                     <div
-                        className="col-5  align-self-center botonAñadirCarrito botonPagarFinal"
+                        className="col-10 col-md- 5  align-self-center botonAñadirCarrito botonPagarFinal"
                         type="button"
                     >
                         <BiGift className="botonHoverAble" /> Pagar

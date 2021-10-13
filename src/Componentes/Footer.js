@@ -5,12 +5,12 @@ export const Footer = () => {
         <>
             <footer className="container-fluid">
                 <ul className="row listaMainFooter">
-                    <li className="col-4"> Quien somos</li>
-                    <li className="col-4">Coleciones</li>
-                    <li className="col-4">
+                    <li className="col-12 col-md-4"> Quien somos</li>
+                    <li className="col-12 col-md-4">Coleciones</li>
+                    <li className="col-12 col-md-4">
                         Contacte
-                        <ul className="contacteFooter">
-                            <li>
+                        <ul className="contacteFooter row">
+                            <li className="col-3 col-md-12">
                                 <a
                                     href="https://github.com/ielgstrom"
                                     target="_blank"
@@ -18,9 +18,11 @@ export const Footer = () => {
                                 >
                                     <GrGithub className="iconoFooter" />
                                 </a>
-                                @ielgstrom
+                                <small className="footerAdress">
+                                    @ielgstrom
+                                </small>
                             </li>
-                            <li>
+                            <li className="col-3 col-md-12">
                                 <a
                                     href="https://www.linkedin.com/in/ignasi-elgström"
                                     target="_blank"
@@ -28,22 +30,28 @@ export const Footer = () => {
                                 >
                                     <FaLinkedin className="iconoFooter" />
                                 </a>
-                                linkedin.com/in/ignasi-elgström
+                                <small className="footerAdress">
+                                    linkedin.com/in/ignasi-elgström
+                                </small>
                             </li>
-                            <li>
+                            <li className="col-3 col-md-12">
                                 <a
                                     href="mailto: i.elgstrom@gmail.com"
                                     rel="noreferrer"
                                 >
                                     <GrMail className="iconoFooter" />
                                 </a>
-                                i.elgstrom@gmail.com
+                                <small className="footerAdress">
+                                    i.elgstrom@gmail.com
+                                </small>
                             </li>
-                            <li>
+                            <li className="col-3 col-md-12">
                                 <a href="tel:671408611" rel="noreferrer">
                                     <FaPhoneAlt className="iconoFooter" />
                                 </a>
-                                (+34) 671408611
+                                <small className="footerAdress">
+                                    (+34) 671408611
+                                </small>
                             </li>
                         </ul>
                     </li>

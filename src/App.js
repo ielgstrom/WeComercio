@@ -26,22 +26,29 @@ function App() {
         <ModeladoContext>
             <Router>
                 <Switch>
-                    <Route exact path="/">
-                        <ProductosPrincipales listaProductos={listaProductos} />
-                    </Route>
-                    <Route exact path="/producto/:idprod">
-                        <ProductoIndividual listaProductos={listaProductos} />
-                    </Route>
-                    <Route exact path="/newuser" component={NewUser} />
-                    <Route exact path="/Carrito" component={ListaCarrito} />
-                    <Route exact path="/busqueda">
-                        <Busqueda listaProductos={listaProductos} />
-                    </Route>
-                    <Route exact path="/busquedaCategorias/:idCateg">
-                        <BusquedaCategoria listaProductos={listaProductos} />
-                    </Route>
-
-                    <Route path="*" component={Pag404} />
+                    <div className="cuerpoCentral">
+                        <Route exact path="/">
+                            <ProductosPrincipales
+                                listaProductos={listaProductos}
+                            />
+                        </Route>
+                        <Route exact path="/producto/:idprod">
+                            <ProductoIndividual
+                                listaProductos={listaProductos}
+                            />
+                        </Route>
+                        <Route exact path="/newuser" component={NewUser} />
+                        <Route exact path="/Carrito" component={ListaCarrito} />
+                        <Route exact path="/busqueda">
+                            <Busqueda listaProductos={listaProductos} />
+                        </Route>
+                        <Route exact path="/busquedaCategorias/:idCateg">
+                            <BusquedaCategoria
+                                listaProductos={listaProductos}
+                            />
+                        </Route>
+                    </div>
+                    <Route exact path="*" component={Pag404} />
                 </Switch>
             </Router>
         </ModeladoContext>
