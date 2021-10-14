@@ -1,9 +1,10 @@
 import Footer from "./Footer";
 import Header from "./Header";
 import { ProductosContext } from "../ProductosContext";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { BiX } from "react-icons/bi";
 import { BiGift } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 export const ListaCarrito = () => {
     const [listaCarrito, setListaCarrito] = useContext(ProductosContext);
@@ -81,74 +82,99 @@ export const ListaCarrito = () => {
             <Header />
             <div className="container contenidoCentral">
                 <h2 className="tituloListaCompra">Lista de la compra</h2>
-                <div className="row">
-                    <h3 className="col-7">Producto</h3>
-                    <h3 className="col-1">Precio</h3>
-                    <h3 className="col-2">Cantidad</h3>
-                    <h3 className="col-1">Total</h3>
-                    <h3 className="col-1">Eliminar</h3>
-                </div>
-                {listaCarrito.map((producto, i) => (
-                    <>
-                        <div className="row productoIndivCompra">
-                            <div className="col-5 col-md-7 nombreProductoCarrito">
-                                {producto.Nombre}
-                            </div>
-                            <div className="col-2 col-md-1">{`${producto.Precio}€`}</div>
-                            <div className="col-2">
-                                <form>
-                                    <input
-                                        type="button"
-                                        value="-"
-                                        onClick={() =>
-                                            disminuirCantidad(producto, i)
-                                        }
-                                        className="botonesMasMenosCarrito"
-                                    />
-                                    <input
-                                        type="number"
-                                        min={0}
-                                        max={10}
-                                        value={listaCarrito[i].numerodeCompras}
-                                        className="imputnumber"
-                                        // onChange={() =>
-                                        //     escribirCantidad(producto, i)
-                                        // }
-                                    />
-                                    <input
-                                        type="button"
-                                        value="+"
-                                        onClick={() =>
-                                            augmentarCantidad(producto, i)
-                                        }
-                                        className="botonesMasMenosCarrito"
-                                    />
-                                </form>
-                            </div>
-                            <div className="col-2 col-md-1">
-                                {`${
-                                    producto.Precio *
-                                    listaCarrito[i].numerodeCompras
-                                }€`}
-                            </div>
-                            <BiX
-                                type="button"
-                                className="col-1 eliminarDeCarrito"
-                                onClick={() => eliminarElemento(producto)}
-                            />
+                {listaCarrito.length !== 0 && (
+                    <div>
+                        <div className="row">
+                            <h3 className="col-7">Producto</h3>
+                            <h3 className="col-1">Precio</h3>
+                            <h3 className="col-2">Cantidad</h3>
+                            <h3 className="col-1">Total</h3>
+                            <h3 className="col-1">Eliminar</h3>
                         </div>
-                    </>
-                ))}
-                <h2 className="preciofinal">{`Precio: ${precioTotal}€`}</h2>
+                        {listaCarrito.map((producto, i) => (
+                            <>
+                                <div className="row productoIndivCompra">
+                                    <div className="col-5 col-md-7 nombreProductoCarrito">
+                                        {producto.Nombre}
+                                    </div>
+                                    <div className="col-2 col-md-1">{`${producto.Precio}€`}</div>
+                                    <div className="col-2">
+                                        <form>
+                                            <input
+                                                type="button"
+                                                value="-"
+                                                onClick={() =>
+                                                    disminuirCantidad(
+                                                        producto,
+                                                        i
+                                                    )
+                                                }
+                                                className="botonesMasMenosCarrito"
+                                            />
+                                            <input
+                                                type="number"
+                                                min={0}
+                                                max={10}
+                                                value={
+                                                    listaCarrito[i]
+                                                        .numerodeCompras
+                                                }
+                                                className="imputnumber"
+                                                // onChange={() =>
+                                                //     escribirCantidad(producto, i)
+                                                // }
+                                            />
+                                            <input
+                                                type="button"
+                                                value="+"
+                                                onClick={() =>
+                                                    augmentarCantidad(
+                                                        producto,
+                                                        i
+                                                    )
+                                                }
+                                                className="botonesMasMenosCarrito"
+                                            />
+                                        </form>
+                                    </div>
+                                    <div className="col-2 col-md-1">
+                                        {`${
+                                            producto.Precio *
+                                            listaCarrito[i].numerodeCompras
+                                        }€`}
+                                    </div>
+                                    <BiX
+                                        type="button"
+                                        className="col-1 eliminarDeCarrito"
+                                        onClick={() =>
+                                            eliminarElemento(producto)
+                                        }
+                                    />
+                                </div>
+                            </>
+                        ))}
+                        <h2 className="preciofinal">{`Precio: ${precioTotal}€`}</h2>
 
-                <div className="row justify-content-center">
-                    <div
-                        className="col-10 col-md- 5  align-self-center botonAñadirCarrito botonPagarFinal"
-                        type="button"
-                    >
-                        <BiGift className="botonHoverAble" /> Pagar
+                        <div className="row justify-content-center">
+                            <div
+                                className="col-10 col-md- 5  align-self-center botonAñadirCarrito botonPagarFinal"
+                                type="button"
+                            >
+                                <BiGift className="botonHoverAble" /> Pagar
+                            </div>
+                        </div>
                     </div>
-                </div>
+                )}
+                {listaCarrito.length === 0 && (
+                    <>
+                        <h2>No tienes nada en el carrito</h2>
+                        <h4>
+                            <Link to="/" className="defaultearLink">
+                                Volver a la pagina principal
+                            </Link>
+                        </h4>
+                    </>
+                )}
             </div>
             <Footer />
         </>

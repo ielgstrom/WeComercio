@@ -23,6 +23,7 @@ export const BusquedaCategoria = ({ listaProductos }) => {
                                 className="productoIndividual col-12 col-md-6 col-lg-4 "
                                 type="button"
                                 to={`/producto/${productoBuscado._id}`}
+                                key={productoBuscado._id}
                             >
                                 <img
                                     src={pandoras_box}

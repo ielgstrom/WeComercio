@@ -51,8 +51,9 @@
 .contenidoCentral {
     margin-right: 200px;
     margin-left: 200px;
-    margin-top: 100px;
+    margin-top: 200px;
     padding-bottom: 200px;
+    z-index: 0;
 }
 
 .contenidoCentral.formSignUp {
@@ -114,7 +115,7 @@ footer {
     background-color: white;
     color: black;
     text-decoration: none;
-    /* z-index: 0; */
+    z-index: 0;
 }
 
 .productoIndividual:hover img {
@@ -132,11 +133,14 @@ img {
     margin-bottom: calc(100vh - 435px);
 }
 header {
-    position: sticky;
+    position: fixed;
     width: 100%;
     top: 0;
     left: 0;
+    background-color: white;
+    z-index: 1;
 }
+
 .imagenMostrador {
     width: 100%;
 }
@@ -430,7 +434,5 @@ input[type="number"] {
         width: 80%;
         margin: 0;
         margin-top: 30px;
-    }
-    .eliminarDeCarrito {
     }
 }

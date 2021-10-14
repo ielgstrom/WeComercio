@@ -22,6 +22,11 @@ function App() {
         fetchData();
     }, []);
 
+    // useEffect(() => {
+    //     window.onbeforeunload = function () {
+    //         alert("Holi");
+    //     };
+    // });
     return (
         <ModeladoContext>
             <Router>

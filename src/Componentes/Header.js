@@ -1,7 +1,7 @@
 import { BiWorld, BiLogIn } from "react-icons/bi";
 import { FiShoppingCart, FiUserPlus } from "react-icons/fi";
 import { Link, useHistory } from "react-router-dom";
-import { useState, useEffect, useRef, useContext } from "react";
+import { useState, useContext } from "react";
 import { ProductosContext } from "../ProductosContext";
 export const Header = () => {
     const [listaCarrito, setListaCarrito] = useContext(ProductosContext);
