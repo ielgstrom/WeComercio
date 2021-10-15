@@ -26,6 +26,7 @@ export const Header = () => {
     };
     const desloguearse = () => {
         setEstaLogueado(false);
+        history.push("/");
         localStorage.removeItem("token");
     };
     //intento de que al clickar fuera, se quitara el menu
@@ -63,7 +64,9 @@ export const Header = () => {
             }
         );
         if (!resp.ok) {
-            console.log("ha salido algo mal");
+            alert(
+                "Alguna cosa no coincide, revisa que estén bien tus credenciales"
+            );
             return;
         }
         const { token } = await resp.json();
@@ -79,21 +82,40 @@ export const Header = () => {
                         Mi web
                     </Link>
                 </h1>
-                <form
-                    className="buscador col-8 col-lg-6"
-                    onSubmit={handleSubmit}
-                >
-                    <div className="form-group controlBuscador">
-                        <input
-                            type="text"
-                            className="form-control"
-                            placeholder="Buscar Producto"
-                            value={textBuscador.busqueda}
-                            onChange={handleSearchChange}
-                            formAction="/producto/0"
-                        />
-                    </div>
-                </form>
+                {!estaLogueado && (
+                    <form
+                        className="buscador col-8 col-lg-6"
+                        onSubmit={handleSubmit}
+                    >
+                        <div className="form-group controlBuscador">
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Buscar Producto"
+                                value={textBuscador.busqueda}
+                                onChange={handleSearchChange}
+                                formAction="/producto/0"
+                            />
+                        </div>
+                    </form>
+                )}
+                {estaLogueado && (
+                    <form
+                        className="buscador col-8 col-lg-9"
+                        onSubmit={handleSubmit}
+                    >
+                        <div className="form-group controlBuscador">
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Buscar Producto"
+                                value={textBuscador.busqueda}
+                                onChange={handleSearchChange}
+                                formAction="/producto/0"
+                            />
+                        </div>
+                    </form>
+                )}
                 {!estaLogueado && (
                     <form className=" col-2 col-lg-4" onSubmit={login}>
                         <div className="row controlLogin">
@@ -134,14 +156,14 @@ export const Header = () => {
                     </form>
                 )}
                 {estaLogueado && (
-                    <div type="button" className="col-2 col-lg-4">
+                    <div type="button" className="col-2 col-lg-1">
                         <div className="row">
                             <Link to="/perfil" className="defaultearLink col-6">
-                                <FiUser className="iconoLogin " />
+                                <FiUser className="iconoLogin iconotoken" />
                             </Link>
                             <div className="col-6">
                                 <BiLogOut
-                                    className=" iconoLogin"
+                                    className="iconoLogin iconotoken"
                                     onClick={desloguearse}
                                 />
                             </div>
