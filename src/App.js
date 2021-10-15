@@ -8,6 +8,7 @@ import Busqueda from "./Componentes/Busqueda";
 import BusquedaCategoria from "./Componentes/BusquedaCategoria";
 import { ModeladoContext } from "./ProductosContext";
 import ListaCarrito from "./Componentes/ListaCarrito";
+import Perfil from "./Componentes/Perfil";
 function App() {
     const [listaProductos, setListaProductos] = useState([]);
 
@@ -52,6 +53,7 @@ function App() {
                                 listaProductos={listaProductos}
                             />
                         </Route>
+                        <Route exact path="/perfil" component={Perfil} />
                     </div>
                     <Route exact path="*" component={Pag404} />
                 </Switch>

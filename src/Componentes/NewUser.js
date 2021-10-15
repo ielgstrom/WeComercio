@@ -1,7 +1,9 @@
 import Header from "./Header";
+import { useHistory } from "react-router";
 import { useEffect, useState } from "react";
 import Footer from "./Footer";
 export const NewUser = () => {
+    const history = useHistory();
     const [newUsuario, setNewUsuario] = useState({
         Nombre: "",
         Email: "",
@@ -28,7 +30,6 @@ export const NewUser = () => {
             return;
         } else {
             const añadirUserDB = async () => {
-                console.log("antes de peticion");
                 const respuesta = await fetch(
                     "https://back-wecomerce.herokuapp.com/usuario/registro",
                     {
@@ -45,7 +46,8 @@ export const NewUser = () => {
                 );
                 const resultado = await respuesta.json();
             };
-            console.log("peticion");
+
+            history.push("/");
             añadirUserDB();
         }
     };
