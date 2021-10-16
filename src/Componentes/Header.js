@@ -78,8 +78,8 @@ export const Header = () => {
         <header className="container-fluid">
             <div className="row headerPrincipal">
                 <h1 className="col-2">
-                    <Link className="defaultearLink" to="/">
-                        W
+                    <Link clasesName="defaultearLink" to="/">
+                        We
                     </Link>
                 </h1>
                 {!estaLogueado && (
