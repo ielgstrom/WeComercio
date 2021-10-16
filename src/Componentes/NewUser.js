@@ -2,6 +2,7 @@ import Header from "./Header";
 import { useHistory } from "react-router";
 import { useEffect, useState } from "react";
 import Footer from "./Footer";
+import { Link } from "react-router-dom";
 export const NewUser = () => {
     const history = useHistory();
     const [newUsuario, setNewUsuario] = useState({
@@ -96,7 +97,11 @@ export const NewUser = () => {
                             onChange={handlePass2}
                         />
                     </div>
-
+                    <button class="btn btn-primary botonYaTengo">
+                        <Link to="/login" className="defaultearLink">
+                            Ya tengo Cuenta
+                        </Link>
+                    </button>
                     <button type="submit" class="btn btn-primary botonNewUser">
                         Crear Cuenta
                     </button>

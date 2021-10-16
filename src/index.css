@@ -2,6 +2,9 @@
     color: black !important;
     text-decoration: none;
 }
+.defaultearLink:hover {
+    text-decoration: none;
+}
 .headerPrincipal,
 .headerSecond {
     border-bottom: 1px solid rgb(172, 172, 172);
@@ -80,14 +83,32 @@
 }
 .botonNewUser {
     margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
     width: 40%;
     background-color: orange !important;
     color: black !important;
     border: 2px solid orange !important;
-    transform: translateX(78%);
+    transform: translateX(10%);
     font-weight: 500 !important;
     font-size: 1.2em !important;
     border-radius: 8px !important;
+}
+.botonYaTengo {
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    width: 40%;
+    background-color: rgb(255, 255, 255) !important;
+    color: black !important;
+    border: 2px solid orange !important;
+    transform: translateX(10%);
+    font-weight: 500 !important;
+    font-size: 1.2em !important;
+    border-radius: 8px !important;
+}
+.botonLogin {
+    transform: translateX(71%);
 }
 .botonNewUser:hover {
     background-color: white !important;
@@ -366,6 +387,12 @@ input[type="number"] {
 .nombreProductoCarrito {
     font-weight: 700;
 }
+.NewUserMovile {
+    display: none;
+}
+.loginIconoMobil {
+    margin: 0 auto;
+}
 @media (max-width: 992px) {
     .contenidoCentral {
         margin-right: 100px;
@@ -378,6 +405,12 @@ input[type="number"] {
     .iconoLogin {
         height: 30px;
         width: 51px;
+        display: none;
+    }
+    .NewUserMovile {
+        display: block;
+        height: 30px;
+        width: 30px;
     }
 }
 @media (max-width: 768px) {

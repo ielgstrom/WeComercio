@@ -52,7 +52,7 @@ export const Header = () => {
         setDatosLogin({ ...datosLogin, Contraseña: e.target.value });
     };
     const login = async (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         const resp = await fetch(
             "https://back-wecomerce.herokuapp.com/usuario/login",
             {
@@ -79,7 +79,7 @@ export const Header = () => {
             <div className="row headerPrincipal">
                 <h1 className="col-2">
                     <Link className="defaultearLink" to="/">
-                        Mi web
+                        W
                     </Link>
                 </h1>
                 {!estaLogueado && (
@@ -121,7 +121,7 @@ export const Header = () => {
                         <div className="row controlLogin">
                             <div className="loginInicioUser col-4">
                                 <input
-                                    type="text"
+                                    type="email"
                                     className="form-control "
                                     placeholder="Email"
                                     value={datosLogin.Email}
@@ -136,6 +136,7 @@ export const Header = () => {
                                     placeholder="Contraseña"
                                     value={datosLogin.Contraseña}
                                     onChange={handleContraseña}
+                                    onSubmit={login}
                                 />
                             </div>
                             <BiLogIn
@@ -150,6 +151,12 @@ export const Header = () => {
                                 <FiUserPlus
                                     className="iconoLogin "
                                     type="button"
+                                />
+                            </Link>
+                            <Link to="/newuser">
+                                <FiUserPlus
+                                    type="button"
+                                    className="NewUserMovile defaultearLink"
                                 />
                             </Link>
                         </div>
@@ -167,6 +174,12 @@ export const Header = () => {
                                     onClick={desloguearse}
                                 />
                             </div>
+                            <Link to="/perfil" className="col-2 ">
+                                <FiUser
+                                    type="button"
+                                    className="NewUserMovile defaultearLink loginIconoMobil"
+                                />
+                            </Link>
                         </div>
                     </div>
                 )}

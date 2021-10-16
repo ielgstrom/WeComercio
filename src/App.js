@@ -9,6 +9,7 @@ import BusquedaCategoria from "./Componentes/BusquedaCategoria";
 import { ModeladoContext } from "./ProductosContext";
 import ListaCarrito from "./Componentes/ListaCarrito";
 import Perfil from "./Componentes/Perfil";
+import { LogInPage } from "./Componentes/LogInPage";
 function App() {
     const [listaProductos, setListaProductos] = useState([]);
 
@@ -23,11 +24,6 @@ function App() {
         fetchData();
     }, []);
 
-    // useEffect(() => {
-    //     window.onbeforeunload = function () {
-    //         alert("Holi");
-    //     };
-    // });
     return (
         <ModeladoContext>
             <Router>
@@ -54,6 +50,7 @@ function App() {
                             />
                         </Route>
                         <Route exact path="/perfil" component={Perfil} />
+                        <Route exact path="/login" component={LogInPage} />
                     </div>
                     <Route exact path="*" component={Pag404} />
                 </Switch>
