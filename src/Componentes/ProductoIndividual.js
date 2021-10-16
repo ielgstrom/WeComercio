@@ -78,7 +78,7 @@ export const ProductoIndividual = ({ listaProductos }) => {
                         <p className="descripcionProducto">
                             {productoSeleccionado[0].Descripción}
                         </p>
-                        <div className="row">
+                        <div className="row contenedorBotonesCompra">
                             <div
                                 className="col-12 col-md-5 botonAñadirCarrito botonHoverAble"
                                 type="button"

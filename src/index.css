@@ -1,9 +1,13 @@
+a,
 .defaultearLink {
     color: rgb(0, 0, 0) !important;
     text-decoration: none;
 }
 .defaultearLink:hover {
     text-decoration: none;
+}
+h1 .defaultearLink.titulo {
+    color: black !important;
 }
 .headerPrincipal,
 .headerSecond {
@@ -284,6 +288,11 @@ p {
     margin-right: 10px;
     text-align: center;
     transition: background-color 0.24s;
+    width: 90%;
+}
+.contenedorBotonesCompra {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .botonAñadirCarrito:hover {
     background-color: white;

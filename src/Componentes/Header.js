@@ -1,6 +1,6 @@
 import { BiWorld, BiLogIn, BiLogOut } from "react-icons/bi";
 import { FiShoppingCart, FiUserPlus, FiUser } from "react-icons/fi";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, NavLink } from "react-router-dom";
 import { useState, useContext } from "react";
 import { ProductosContext } from "../ProductosContext";
 export const Header = () => {
@@ -78,9 +78,9 @@ export const Header = () => {
         <header className="container-fluid">
             <div className="row headerPrincipal">
                 <h1 className="col-2">
-                    <Link clasesName="defaultearLink" to="/">
+                    <NavLink clasesName="defaultearLink titulo" to="/">
                         We
-                    </Link>
+                    </NavLink>
                 </h1>
                 {!estaLogueado && (
                     <form

@@ -10,6 +10,7 @@ import { ModeladoContext } from "./ProductosContext";
 import ListaCarrito from "./Componentes/ListaCarrito";
 import Perfil from "./Componentes/Perfil";
 import { LogInPage } from "./Componentes/LogInPage";
+import ScrollToTop from "./ScrollToTop";
 function App() {
     const [listaProductos, setListaProductos] = useState([]);
 
@@ -27,6 +28,7 @@ function App() {
     return (
         <ModeladoContext>
             <Router>
+                <ScrollToTop />
                 <Switch>
                     <div className="cuerpoCentral">
                         <Route exact path="/">
