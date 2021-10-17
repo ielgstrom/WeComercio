@@ -2,8 +2,11 @@ import Footer from "./Footer";
 import Header from "./Header";
 import pandoras_box from "../pandoras_box.jpg";
 import { Link, useParams } from "react-router-dom";
+import { useContext } from "react";
+import { ProductosContext } from "../ProductosContext";
 
-export const BusquedaCategoria = ({ listaProductos }) => {
+export const BusquedaCategoria = () => {
+    const { listaProductos } = useContext(ProductosContext);
     let { idCateg } = useParams();
     const idCategFiltrado = idCateg.replaceAll("-", " ");
 

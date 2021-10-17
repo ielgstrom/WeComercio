@@ -1,6 +1,6 @@
 import Header from "./Header";
 import { useHistory } from "react-router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
 export const NewUser = () => {
@@ -58,8 +58,8 @@ export const NewUser = () => {
             <div className="contenidoCentral formSignUp">
                 <h2>Nuevo Usuario</h2>
                 <form onSubmit={Submitearusuario}>
-                    <div class="form-group inputNewUser ">
-                        <label for="exampleInputEmail1">Nombre</label>
+                    <div className="form-group inputNewUser ">
+                        <label htmlFor="exampleInputEmail1">Nombre</label>
                         <input
                             type="text"
                             className="form-control"
@@ -68,8 +68,8 @@ export const NewUser = () => {
                             onChange={handleNombre}
                         />
                     </div>
-                    <div class="form-group inputNewUser">
-                        <label for="exampleInputEmail1">Email</label>
+                    <div className="form-group inputNewUser">
+                        <label htmlFor="exampleInputEmail1">Email</label>
                         <input
                             type="email"
                             className="form-control"
@@ -78,8 +78,10 @@ export const NewUser = () => {
                             onChange={handleEmail}
                         />
                     </div>
-                    <div class="form-group inputNewUser">
-                        <label for="exampleInputPassword1">Contraseña</label>
+                    <div className="form-group inputNewUser">
+                        <label htmlFor="exampleInputPassword1">
+                            Contraseña
+                        </label>
                         <input
                             type="password"
                             className="form-control"
@@ -88,7 +90,7 @@ export const NewUser = () => {
                             onChange={handlePass1}
                         />
                     </div>
-                    <div class="form-group inputNewUser">
+                    <div className="form-group inputNewUser">
                         <input
                             type="password"
                             className="form-control"
@@ -97,12 +99,15 @@ export const NewUser = () => {
                             onChange={handlePass2}
                         />
                     </div>
-                    <button class="btn btn-primary botonYaTengo">
+                    <button className="btn btn-primary botonYaTengo">
                         <Link to="/login" className="defaultearLink">
                             Ya tengo Cuenta
                         </Link>
                     </button>
-                    <button type="submit" class="btn btn-primary botonNewUser">
+                    <button
+                        type="submit"
+                        className="btn btn-primary botonNewUser"
+                    >
                         Crear Cuenta
                     </button>
                 </form>

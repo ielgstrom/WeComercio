@@ -1,11 +1,10 @@
 import Footer from "./Footer";
 import Header from "./Header";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useState, useContext } from "react";
 import { ProductosContext } from "../ProductosContext";
 export const LogInPage = () => {
-    const [listaCarrito, setListaCarrito, setEstaLogueado, estaLogueado] =
-        useContext(ProductosContext);
+    const { setEstaLogueado } = useContext(ProductosContext);
     let history = useHistory();
     const [datosLogin, setDatosLogin] = useState({
         Email: "",
@@ -14,11 +13,7 @@ export const LogInPage = () => {
     const loguearUsuario = () => {
         setEstaLogueado(true);
     };
-    const desloguearse = () => {
-        setEstaLogueado(false);
-        history.push("/");
-        localStorage.removeItem("token");
-    };
+
     const login = async (e) => {
         e.preventDefault();
         const resp = await fetch(
@@ -54,9 +49,9 @@ export const LogInPage = () => {
             <div className="contenidoCentral formSignUp">
                 <h2>Introduce tus Credenciales</h2>
                 <form onSubmit={login}>
-                    <div class="form-group inputNewUser "></div>
-                    <div class="form-group inputNewUser">
-                        <label for="exampleInputEmail1">Email</label>
+                    <div className="form-group inputNewUser "></div>
+                    <div className="form-group inputNewUser">
+                        <label htmlFor="exampleInputEmail1">Email</label>
                         <input
                             type="email"
                             className="form-control"
@@ -65,8 +60,10 @@ export const LogInPage = () => {
                             onChange={handleEmail}
                         />
                     </div>
-                    <div class="form-group inputNewUser">
-                        <label for="exampleInputPassword1">Contraseña</label>
+                    <div className="form-group inputNewUser">
+                        <label htmlFor="exampleInputPassword1">
+                            Contraseña
+                        </label>
                         <input
                             type="password"
                             className="form-control"
@@ -78,7 +75,7 @@ export const LogInPage = () => {
 
                     <button
                         type="submit"
-                        class="btn btn-primary botonNewUser botonLogin"
+                        className="btn btn-primary botonNewUser botonLogin"
                         onClick={login}
                     >
                         Iniciar Sesión

@@ -7,7 +7,7 @@ import { BiGift } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 export const ListaCarrito = () => {
-    const [listaCarrito, setListaCarrito] = useContext(ProductosContext);
+    const { listaCarrito, setListaCarrito } = useContext(ProductosContext);
 
     const augmentarCantidad = (producto, index) => {
         if (listaCarrito[index].numerodeCompras <= producto.Stock - 1) {

@@ -1,9 +1,11 @@
 import pandoras_box from "../pandoras_box.jpg";
-
+import { ProductosContext } from "../ProductosContext";
+import { useContext } from "react";
 import { useLocation, Link } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
-export const Busqueda = ({ listaProductos }) => {
+export const Busqueda = () => {
+    const { listaProductos } = useContext(ProductosContext);
     const location = useLocation();
     const query = new URLSearchParams(location.search);
     const busquedaQuery = query.get("item");

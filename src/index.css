@@ -67,8 +67,9 @@ h1 .defaultearLink.titulo {
 }
 
 .contenidoCentral.formSignUp {
-    width: 600px !important;
+    width: 600px;
     display: block;
+    min-height: 750px;
     margin-left: auto !important;
     margin-right: auto !important;
     margin-bottom: 0;
@@ -76,6 +77,23 @@ h1 .defaultearLink.titulo {
     padding: 40px;
     border-radius: 32px;
     box-shadow: 53px 25px 25px rgba(194, 194, 194, 0.33);
+}
+@media (max-width: 600px) {
+    .formSignUp {
+        width: 95% !important;
+        padding: 20px !important;
+        /* position: absolute; */
+    }
+    .botonYaTengo,
+    .botonNewUser {
+        width: 85% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    .botonLogin {
+        transform: translateX(0) !important;
+        width: 100% !important;
+    }
 }
 .inputNewUser {
     margin-bottom: 15px;
@@ -423,6 +441,12 @@ input[type="number"] {
     }
 }
 @media (max-width: 768px) {
+    p {
+        font-size: 1rem;
+    }
+    .descripcionProducto {
+        font-size: 1.2rem;
+    }
     .contenidoCentral {
         margin-left: 20px;
         margin-right: 20px;
@@ -466,8 +490,7 @@ input[type="number"] {
     }
     .nombreProducto,
     .categoriaProducto,
-    .estrellasValoracion,
-    .descripcionProducto {
+    .estrellasValoracion {
         text-align: center;
         font-size: 1.5em;
     }

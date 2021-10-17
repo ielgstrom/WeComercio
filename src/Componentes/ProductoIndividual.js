@@ -7,8 +7,10 @@ import { BiGift } from "react-icons/bi";
 import Header from "./Header";
 import Footer from "./Footer";
 import { ProductosContext } from "../ProductosContext";
-export const ProductoIndividual = ({ listaProductos }) => {
-    const [listaCarrito, setListaCarrito] = useContext(ProductosContext);
+export const ProductoIndividual = () => {
+    const { listaProductos, listaCarrito, setListaCarrito } =
+        useContext(ProductosContext);
+
     const { idprod } = useParams();
     const productoSeleccionado = listaProductos.filter(
         (elemento) => elemento._id.toString() === idprod

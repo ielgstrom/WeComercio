@@ -4,7 +4,7 @@ import { Link, useHistory, NavLink } from "react-router-dom";
 import { useState, useContext } from "react";
 import { ProductosContext } from "../ProductosContext";
 export const Header = () => {
-    const [listaCarrito, setListaCarrito, setEstaLogueado, estaLogueado] =
+    const { listaCarrito, setListaCarrito, setEstaLogueado, estaLogueado } =
         useContext(ProductosContext);
     const [datosLogin, setDatosLogin] = useState({ Email: "", Contraseña: "" });
     let history = useHistory();
@@ -78,7 +78,7 @@ export const Header = () => {
         <header className="container-fluid">
             <div className="row headerPrincipal">
                 <h1 className="col-2">
-                    <NavLink clasesName="defaultearLink titulo" to="/">
+                    <NavLink className="defaultearLink titulo" to="/">
                         We
                     </NavLink>
                 </h1>

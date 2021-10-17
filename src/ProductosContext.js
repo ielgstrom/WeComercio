@@ -16,15 +16,29 @@ export const ModeladoContext = (props) => {
         };
         fetchData();
     }, []);
+    const [listaProductos, setListaProductos] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const respuesta = await fetch(
+                "https://back-wecomerce.herokuapp.com/producto"
+            );
+            const datos = await respuesta.json();
+            setListaProductos(datos);
+        };
+        fetchData();
+    }, []);
 
     return (
         <ProductosContext.Provider
-            value={[
+            value={{
                 listaCarrito,
                 setListaCarrito,
                 setEstaLogueado,
                 estaLogueado,
-            ]}
+                listaProductos,
+                setListaProductos,
+            }}
         >
             {props.children}
         </ProductosContext.Provider>
