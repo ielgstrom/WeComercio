@@ -11,6 +11,7 @@ import ListaCarrito from "./Componentes/ListaCarrito";
 import Perfil from "./Componentes/Perfil";
 import { LogInPage } from "./Componentes/LogInPage";
 import ScrollToTop from "./ScrollToTop";
+import ComprarAhora from "./Componentes/ComprarAhora";
 function App() {
     return (
         <ModeladoContext>
@@ -38,6 +39,7 @@ function App() {
                         />
                         <Route exact path="/perfil" component={Perfil} />
                         <Route exact path="/login" component={LogInPage} />
+                        <Route exact path="/buynow" component={ComprarAhora} />
                     </div>
                     <Route exact path="*" component={Pag404} />
                 </Switch>

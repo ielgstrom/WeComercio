@@ -38,7 +38,11 @@ export const ProductosPrincipales = () => {
                         Más vendido
                     </div>
                     {listaProductos[0] === undefined && (
-                        <div className="loading">Cargando Productos...</div>
+                        <>
+                            <div className="productoIndividualLoad col-12 col-md-6 col-lg-4"></div>
+                            <div className="productoIndividualLoad col-12 col-md-6 col-lg-4"></div>
+                            <div className="productoIndividualLoad col-12 col-md-6 col-lg-4"></div>
+                        </>
                     )}
 
                     {listaProductos.map((producto) => (

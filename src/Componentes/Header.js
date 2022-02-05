@@ -53,6 +53,10 @@ export const Header = () => {
     };
     const login = async (e) => {
         // e.preventDefault();
+        if (datosLogin.Email === "" && datosLogin.Contraseña === "") {
+            history.push("/newuser");
+            return;
+        }
         const resp = await fetch(
             "https://back-wecomerce.herokuapp.com/usuario/login",
             {

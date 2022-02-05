@@ -112,6 +112,7 @@ export const NewUser = () => {
                     </button>
                 </form>
             </div>
+            <div className="separadorMalHecho"></div>
             <Footer />
         </>
     );

@@ -10,7 +10,7 @@ export const Footer = () => {
                     <li className="col-12 col-md-4">
                         Contacte
                         <ul className="contacteFooter row">
-                            <li className="col-3 col-md-12">
+                            <li className="col-3 col-md-12 px-3">
                                 <a
                                     href="https://github.com/ielgstrom"
                                     target="_blank"
@@ -22,7 +22,7 @@ export const Footer = () => {
                                     @ielgstrom
                                 </small>
                             </li>
-                            <li className="col-3 col-md-12">
+                            <li className="col-3 col-md-12 px-3">
                                 <a
                                     href="https://www.linkedin.com/in/ignasi-elgström"
                                     target="_blank"
@@ -34,7 +34,7 @@ export const Footer = () => {
                                     linkedin.com/in/ignasi-elgström
                                 </small>
                             </li>
-                            <li className="col-3 col-md-12">
+                            <li className="col-3 col-md-12 px-3">
                                 <a
                                     href="mailto: i.elgstrom@gmail.com"
                                     rel="noreferrer"
@@ -45,7 +45,7 @@ export const Footer = () => {
                                     i.elgstrom@gmail.com
                                 </small>
                             </li>
-                            <li className="col-3 col-md-12">
+                            <li className="col-3 col-md-12 px-3">
                                 <a href="tel:671408611" rel="noreferrer">
                                     <FaPhoneAlt className="iconoFooter" />
                                 </a>

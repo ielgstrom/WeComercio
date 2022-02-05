@@ -97,12 +97,15 @@ export const ProductoIndividual = () => {
                                 className="col-12 col-md-5 botonAñadirCarrito"
                                 type="button"
                             >
-                                <BiGift className="botonHoverAble" /> Comprar
-                                Ahora
+                                <Link className="defaultearLink" to="/buynow">
+                                    <BiGift className="botonHoverAble" />{" "}
+                                    Comprar Ahora
+                                </Link>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div className="row">Productos Parecidos</div>
             </div>
             <Footer />
         </>
