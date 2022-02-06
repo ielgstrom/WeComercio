@@ -1,9 +1,11 @@
 import Header from "./Header";
 import { useHistory } from "react-router";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
+import { ProductosContext } from "../ProductosContext";
 export const NewUser = () => {
+    const { setEstaLogueado } = useContext(ProductosContext);
     const history = useHistory();
     const [newUsuario, setNewUsuario] = useState({
         Nombre: "",
@@ -29,28 +31,63 @@ export const NewUser = () => {
             // console.log("hola");
             alert("Las contraseñas no coinciden");
             return;
-        } else {
-            const añadirUserDB = async () => {
-                const respuesta = await fetch(
-                    "https://back-wecomerce.herokuapp.com/usuario/registro",
-                    {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify({
-                            Nombre: newUsuario.Nombre,
-                            Email: newUsuario.Email,
-                            Contraseña: newUsuario.Contraseña,
-                        }),
-                    }
-                );
-                const resultado = await respuesta.json();
-            };
-
-            history.push("/");
-            añadirUserDB();
         }
+        if (newUsuario.Contraseña.length < 6) {
+            alert("La contraseña ha de ser de minimo 6 caracteres");
+            return;
+        }
+
+        const añadirUserDB = async () => {
+            const respuesta = await fetch(
+                "https://back-wecomerce.herokuapp.com/usuario/registro",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        Nombre: newUsuario.Nombre,
+                        Email: newUsuario.Email,
+                        Contraseña: newUsuario.Contraseña,
+                    }),
+                }
+            );
+            const resultado = await respuesta.json();
+            if (respuesta.ok) {
+                login();
+                const redirect = await history.push("/");
+            }
+        };
+
+        const login = async (e) => {
+            // e.preventDefault();
+            const datosLogin = {
+                Email: newUsuario.Email,
+                Contraseña: newUsuario.Contraseña,
+            };
+            const resp = await fetch(
+                "https://back-wecomerce.herokuapp.com/usuario/login",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(datosLogin),
+                }
+            );
+            if (!resp.ok) {
+                alert(
+                    "Alguna cosa no coincide, revisa que estén bien tus credenciales"
+                );
+                return;
+            }
+            const { token } = await resp.json();
+            localStorage.setItem("token", token);
+            setEstaLogueado(true);
+        };
+
+        añadirUserDB();
+        // history.push("/");
     };
     return (
         <>

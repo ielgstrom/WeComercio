@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import pandoras_box from "../pandoras_box.jpg";
 import { FaStar, FaRegStar } from "react-icons/fa";
@@ -19,10 +19,22 @@ export const ProductoIndividual = () => {
         if (!listaCarrito.includes(nuevoElemento)) {
             nuevoElemento.numerodeCompras = 1;
             setListaCarrito((listaCarrito) => [...listaCarrito, nuevoElemento]);
+            debugger;
         } else {
             alert("Ya tienes ese producto en el carrito");
         }
     };
+    // const [productosParecidos, setProductosParecidos] = useState([]);
+    let productosParecidos = [];
+    for (let i = 0; i !== 3; i++) {
+        productosParecidos.push(
+            listaProductos[Math.floor(Math.random() * listaProductos.length)]
+        );
+        // setProductosParecidos([
+        //     ...productosParecidos,
+        //     listaProductos[Math.floor(Math.random() * listaProductos.length)],
+        // ]);
+    }
     return (
         <>
             <Header listaCarrito={listaCarrito} />
@@ -105,7 +117,33 @@ export const ProductoIndividual = () => {
                         </div>
                     </div>
                 </div>
-                <div className="row">Productos Parecidos</div>
+                <div className="row">
+                    <h2 className="col-12">{`Productos Parecidos`}</h2>
+                    {productosParecidos.map((producto) => (
+                        <>
+                            <Link
+                                className="productoIndividual col-12 col-md-6 col-lg-4 "
+                                type="button"
+                                to={`/producto/${producto._id}`}
+                                key={producto._id}
+                            >
+                                <img
+                                    src={pandoras_box}
+                                    className="imagenMostrador"
+                                    alt="imagen"
+                                />
+                                <div className="flex-container space-between">
+                                    <small className="flex-item">
+                                        {producto.Nombre}
+                                    </small>
+                                    <small className="flex-item">
+                                        {`${producto.Precio}€`}
+                                    </small>
+                                </div>
+                            </Link>
+                        </>
+                    ))}
+                </div>
             </div>
             <Footer />
         </>

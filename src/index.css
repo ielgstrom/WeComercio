@@ -218,6 +218,7 @@ header {
 
 .imagenMostrador {
     width: 100%;
+    height: 90%;
 }
 p {
     font-size: 1.5em;
