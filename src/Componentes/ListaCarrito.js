@@ -156,12 +156,13 @@ export const ListaCarrito = () => {
                         <h2 className="preciofinal">{`Precio: ${precioTotal}€`}</h2>
 
                         <div className="row justify-content-center">
-                            <div
+                            <Link
                                 className="col-10 col-md- 5  align-self-center botonAñadirCarrito botonPagarFinal"
                                 type="button"
+                                to="/buynow"
                             >
                                 <BiGift className="botonHoverAble" /> Pagar
-                            </div>
+                            </Link>
                         </div>
                     </div>
                 )}

@@ -28,6 +28,7 @@ export const Header = () => {
         setEstaLogueado(false);
         history.push("/");
         localStorage.removeItem("token");
+        setListaCarrito([]);
     };
     //intento de que al clickar fuera, se quitara el menu
     // useEffect(() => {

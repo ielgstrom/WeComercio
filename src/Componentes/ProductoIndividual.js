@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import pandoras_box from "../pandoras_box.jpg";
 import { FaStar, FaRegStar } from "react-icons/fa";
@@ -19,22 +19,23 @@ export const ProductoIndividual = () => {
         if (!listaCarrito.includes(nuevoElemento)) {
             nuevoElemento.numerodeCompras = 1;
             setListaCarrito((listaCarrito) => [...listaCarrito, nuevoElemento]);
-            debugger;
         } else {
             alert("Ya tienes ese producto en el carrito");
         }
     };
-    // const [productosParecidos, setProductosParecidos] = useState([]);
-    let productosParecidos = [];
-    for (let i = 0; i !== 3; i++) {
-        productosParecidos.push(
-            listaProductos[Math.floor(Math.random() * listaProductos.length)]
-        );
-        // setProductosParecidos([
-        //     ...productosParecidos,
-        //     listaProductos[Math.floor(Math.random() * listaProductos.length)],
-        // ]);
-    }
+    const [productosParecidos, setProductosParecidos] = useState([]);
+    useEffect(() => {
+        const nuevosProductosParecidos = [];
+        for (let i = 0; i !== 3; i++) {
+            nuevosProductosParecidos.push(
+                listaProductos[
+                    Math.floor(Math.random() * listaProductos.length)
+                ]
+            );
+        }
+        setProductosParecidos([...nuevosProductosParecidos]);
+    }, [listaProductos]);
+
     return (
         <>
             <Header listaCarrito={listaCarrito} />
@@ -105,15 +106,15 @@ export const ProductoIndividual = () => {
                                 <MdAddShoppingCart className="botonHoverAble" />{" "}
                                 Añadir al Carrito
                             </div>
-                            <div
-                                className="col-12 col-md-5 botonAñadirCarrito"
-                                type="button"
+                            <Link
+                                className="defaultearLink col-12 col-md-5 botonAñadirCarrito"
+                                to="/buynow"
                             >
-                                <Link className="defaultearLink" to="/buynow">
+                                <div className="botonHoverAble" type="button">
                                     <BiGift className="botonHoverAble" />{" "}
                                     Comprar Ahora
-                                </Link>
-                            </div>
+                                </div>
+                            </Link>
                         </div>
                     </div>
                 </div>

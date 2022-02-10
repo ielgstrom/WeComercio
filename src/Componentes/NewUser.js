@@ -13,6 +13,7 @@ export const NewUser = () => {
         Contraseña: "",
         ContraseñaSegura: "",
     });
+    const [loadingInfo, setLoadingInfo] = useState(true);
     const handleNombre = (e) => {
         setNewUsuario({ ...newUsuario, Nombre: e.target.value });
     };
@@ -28,7 +29,6 @@ export const NewUser = () => {
     const Submitearusuario = (e) => {
         e.preventDefault();
         if (newUsuario.Contraseña !== newUsuario.ContraseñaSegura) {
-            // console.log("hola");
             alert("Las contraseñas no coinciden");
             return;
         }
@@ -53,14 +53,17 @@ export const NewUser = () => {
                 }
             );
             const resultado = await respuesta.json();
+            let awaitLogin;
             if (respuesta.ok) {
-                login();
-                const redirect = await history.push("/");
+                awaitLogin = await login();
+                // history.push("/");
             }
+            return awaitLogin;
         };
 
         const login = async (e) => {
             // e.preventDefault();
+            setLoadingInfo(false);
             const datosLogin = {
                 Email: newUsuario.Email,
                 Contraseña: newUsuario.Contraseña,
@@ -86,14 +89,14 @@ export const NewUser = () => {
             setEstaLogueado(true);
         };
 
-        añadirUserDB();
-        // history.push("/");
+        añadirUserDB().then(setLoadingInfo(true));
     };
     return (
         <>
             <Header />
             <div className="contenidoCentral formSignUp">
                 <h2>Nuevo Usuario</h2>
+                {!loadingInfo && <h3>NoLoad</h3>}
                 <form onSubmit={Submitearusuario}>
                     <div className="form-group inputNewUser ">
                         <label htmlFor="exampleInputEmail1">Nombre</label>

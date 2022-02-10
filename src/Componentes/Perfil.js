@@ -6,27 +6,40 @@ import { useContext } from "react";
 import { useHistory } from "react-router-dom";
 export const Perfil = () => {
     let history = useHistory();
-    const { setEstaLogueado } = useContext(ProductosContext);
+    const { setEstaLogueado, setListaCarrito } = useContext(ProductosContext);
     const token = localStorage.getItem("token");
     const { resultadoUsuarioSeguro } = jwt_decode(token);
     const handleLogOut = (e) => {
         setEstaLogueado(false);
         history.push("/");
         localStorage.removeItem("token");
+        setListaCarrito([]);
     };
     return (
         <>
             <Header />
-            <h1 className="contenidoCentral">
-                Este es tu perfil, {resultadoUsuarioSeguro.Nombre}
-            </h1>
-            <button
-                type="submit"
-                className="btn btn-primary botonNewUser"
-                onClick={handleLogOut}
-            >
-                Salir de la sesion
-            </button>
+            <div className="contenidoCentral">
+                <h1>Este es tu perfil, {resultadoUsuarioSeguro.Nombre}</h1>
+                <div className="container-fluid">
+                    <div className="row">
+                        <h2 className="col-12">Datos:</h2>
+                        <ul className="col-12">
+                            <li>Mail: {resultadoUsuarioSeguro.Email}</li>
+                            <li>
+                                Contraseña: {resultadoUsuarioSeguro.Contraseña}
+                            </li>
+                        </ul>
+
+                        <button
+                            type="submit"
+                            className="btn btn-primary botonNewUser col-12"
+                            onClick={handleLogOut}
+                        >
+                            Salir de la sesion
+                        </button>
+                    </div>
+                </div>
+            </div>
             <Footer />
         </>
     );
