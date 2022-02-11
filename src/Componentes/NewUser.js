@@ -1,7 +1,7 @@
 import Header from "./Header";
 import { useHistory } from "react-router";
 import { useState, useContext } from "react";
-import Footer from "./Footer";
+
 import { Link } from "react-router-dom";
 import { ProductosContext } from "../ProductosContext";
 export const NewUser = () => {
@@ -56,7 +56,7 @@ export const NewUser = () => {
             let awaitLogin;
             if (respuesta.ok) {
                 awaitLogin = await login();
-                // history.push("/");
+                history.push("/");
             }
             return awaitLogin;
         };
@@ -139,6 +139,20 @@ export const NewUser = () => {
                             onChange={handlePass2}
                         />
                     </div>
+                    <div className="form-check">
+                        <input
+                            className="form-check-input"
+                            type="checkbox"
+                            value=""
+                            id="flexCheckDefault"
+                        />
+                        <label
+                            className="form-check-label"
+                            for="flexCheckDefault"
+                        >
+                            Mantenerme Logueado
+                        </label>
+                    </div>
                     <button className="btn btn-primary botonYaTengo">
                         <Link to="/login" className="defaultearLink">
                             Ya tengo Cuenta
@@ -152,8 +166,6 @@ export const NewUser = () => {
                     </button>
                 </form>
             </div>
-            <div className="separadorMalHecho"></div>
-            <Footer />
         </>
     );
 };

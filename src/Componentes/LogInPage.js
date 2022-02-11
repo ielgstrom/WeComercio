@@ -72,6 +72,20 @@ export const LogInPage = () => {
                             onChange={handleContraseña}
                         />
                     </div>
+                    <div className="form-check">
+                        <input
+                            className="form-check-input"
+                            type="checkbox"
+                            value=""
+                            id="flexCheckDefault"
+                        />
+                        <label
+                            className="form-check-label"
+                            htmlFor="flexCheckDefault"
+                        >
+                            Mantenerme Logueado
+                        </label>
+                    </div>
 
                     <button
                         type="submit"
@@ -82,7 +96,6 @@ export const LogInPage = () => {
                     </button>
                 </form>
             </div>
-            <Footer />
         </>
     );
 };
