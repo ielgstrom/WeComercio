@@ -8,13 +8,10 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { ProductosContext } from "../ProductosContext";
 export const ProductoIndividual = () => {
-    const { listaProductos, listaCarrito, setListaCarrito } =
-        useContext(ProductosContext);
+    const { listaCarrito, setListaCarrito } = useContext(ProductosContext);
 
     const { idprod } = useParams();
-    const productoSeleccionado = listaProductos.filter(
-        (elemento) => elemento._id.toString() === idprod
-    );
+
     const añadirElementoACarrito = (nuevoElemento) => {
         if (!listaCarrito.includes(nuevoElemento)) {
             nuevoElemento.numerodeCompras = 1;
@@ -23,18 +20,19 @@ export const ProductoIndividual = () => {
             alert("Ya tienes ese producto en el carrito");
         }
     };
-    const [productosParecidos, setProductosParecidos] = useState([]);
+    const [ProductoIndividualYSimilares, setProductoIndividualYSimilares] =
+        useState({ productoEncontrado: {}, productosSugeridos: [] });
+
     useEffect(() => {
-        const nuevosProductosParecidos = [];
-        for (let i = 0; i !== 3; i++) {
-            nuevosProductosParecidos.push(
-                listaProductos[
-                    Math.floor(Math.random() * listaProductos.length)
-                ]
+        const fetchData = async () => {
+            const respuesta = await fetch(
+                `https://back-wecomerce.herokuapp.com/producto/${idprod}`
             );
-        }
-        setProductosParecidos([...nuevosProductosParecidos]);
-    }, [listaProductos]);
+            const productos = await respuesta.json();
+            setProductoIndividualYSimilares(productos);
+        };
+        fetchData();
+    }, [idprod]);
 
     return (
         <>
@@ -49,49 +47,51 @@ export const ProductoIndividual = () => {
                         />
                     </div>
                     <div className="nombreProducto col-12 col-md-6">
-                        <h2>{productoSeleccionado[0].Nombre}</h2>
+                        <h2>
+                            {
+                                ProductoIndividualYSimilares.productoEncontrado
+                                    .Nombre
+                            }
+                        </h2>
                         <h2 className="precioProducto">
-                            {`${productoSeleccionado[0].Precio}€`}
+                            {`${ProductoIndividualYSimilares.productoEncontrado.Precio}€`}
                         </h2>
                         <h2 className="categoriaProducto">
                             <Link
                                 className="defaultearLink"
-                                to={`/busquedaCategorias/${productoSeleccionado[0].Categoria}`}
+                                to={`/busquedaCategorias/${ProductoIndividualYSimilares.productoEncontrado.Categoria}`}
                             >
-                                {productoSeleccionado[0].Categoria}
+                                {
+                                    ProductoIndividualYSimilares
+                                        .productoEncontrado.Categoria
+                                }
                             </Link>
                         </h2>
                         <div className="estrellasValoracion">
-                            {productoSeleccionado[0].Estrellas >= 1 && (
-                                <FaStar />
-                            )}
-                            {productoSeleccionado[0].Estrellas <= 1 && (
-                                <FaRegStar />
-                            )}
-                            {productoSeleccionado[0].Estrellas >= 2 && (
-                                <FaStar />
-                            )}
-                            {productoSeleccionado[0].Estrellas <= 2 && (
-                                <FaRegStar />
-                            )}
-                            {productoSeleccionado[0].Estrellas >= 3 && (
-                                <FaStar />
-                            )}
-                            {productoSeleccionado[0].Estrellas <= 3 && (
-                                <FaRegStar />
-                            )}
-                            {productoSeleccionado[0].Estrellas >= 4 && (
-                                <FaStar />
-                            )}
-                            {productoSeleccionado[0].Estrellas <= 4 && (
-                                <FaRegStar />
-                            )}
-                            {productoSeleccionado[0].Estrellas >= 5 && (
-                                <FaStar />
-                            )}
+                            {ProductoIndividualYSimilares.productoEncontrado
+                                .Estrellas >= 1 && <FaStar />}
+                            {ProductoIndividualYSimilares.productoEncontrado
+                                .Estrellas <= 1 && <FaRegStar />}
+                            {ProductoIndividualYSimilares.productoEncontrado
+                                .Estrellas >= 2 && <FaStar />}
+                            {ProductoIndividualYSimilares.productoEncontrado
+                                .Estrellas <= 2 && <FaRegStar />}
+                            {ProductoIndividualYSimilares.productoEncontrado
+                                .Estrellas >= 3 && <FaStar />}
+                            {ProductoIndividualYSimilares.productoEncontrado
+                                .Estrellas <= 3 && <FaRegStar />}
+                            {ProductoIndividualYSimilares.productoEncontrado
+                                .Estrellas >= 4 && <FaStar />}
+                            {ProductoIndividualYSimilares.productoEncontrado
+                                .Estrellas <= 4 && <FaRegStar />}
+                            {ProductoIndividualYSimilares.productoEncontrado
+                                .Estrellas >= 5 && <FaStar />}
                         </div>
                         <p className="descripcionProducto">
-                            {productoSeleccionado[0].Descripción}
+                            {
+                                ProductoIndividualYSimilares.productoEncontrado
+                                    .Descripción
+                            }
                         </p>
                         <div className="row contenedorBotonesCompra">
                             <div
@@ -99,7 +99,7 @@ export const ProductoIndividual = () => {
                                 type="button"
                                 onClick={() =>
                                     añadirElementoACarrito(
-                                        productoSeleccionado[0]
+                                        ProductoIndividualYSimilares.productoEncontrado
                                     )
                                 }
                             >
@@ -120,30 +120,32 @@ export const ProductoIndividual = () => {
                 </div>
                 <div className="row">
                     <h2 className="col-12">{`Productos Parecidos`}</h2>
-                    {productosParecidos.map((producto) => (
-                        <>
-                            <Link
-                                className="productoIndividual col-12 col-md-6 col-lg-4 "
-                                type="button"
-                                to={`/producto/${producto._id}`}
-                                key={producto._id}
-                            >
-                                <img
-                                    src={pandoras_box}
-                                    className="imagenMostrador"
-                                    alt="imagen"
-                                />
-                                <div className="flex-container space-between">
-                                    <small className="flex-item">
-                                        {producto.Nombre}
-                                    </small>
-                                    <small className="flex-item">
-                                        {`${producto.Precio}€`}
-                                    </small>
-                                </div>
-                            </Link>
-                        </>
-                    ))}
+                    {ProductoIndividualYSimilares.productosSugeridos.map(
+                        (producto) => (
+                            <>
+                                <Link
+                                    className="productoIndividual col-12 col-md-6 col-lg-4 "
+                                    type="button"
+                                    to={`/producto/${producto._id}`}
+                                    key={producto._id}
+                                >
+                                    <img
+                                        src={pandoras_box}
+                                        className="imagenMostrador"
+                                        alt="imagen"
+                                    />
+                                    <div className="flex-container space-between">
+                                        <small className="flex-item">
+                                            {producto.Nombre}
+                                        </small>
+                                        <small className="flex-item">
+                                            {`${producto.Precio}€`}
+                                        </small>
+                                    </div>
+                                </Link>
+                            </>
+                        )
+                    )}
                 </div>
             </div>
             <Footer />
