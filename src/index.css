@@ -59,6 +59,13 @@ h1 .defaultearLink.titulo {
     right: 2px; */
 }
 .contenidoCentral {
+    margin-right: 200px;
+    margin-left: 200px;
+    margin-top: 200px;
+    padding-bottom: 200px;
+    z-index: 0;
+}
+.contenidoCentralIndividual {
     margin-right: auto;
     margin-left: auto;
     margin-top: 200px;

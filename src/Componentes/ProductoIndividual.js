@@ -37,7 +37,7 @@ export const ProductoIndividual = () => {
     return (
         <>
             <Header listaCarrito={listaCarrito} />
-            <div className=" container contenidoCentral">
+            <div className=" container contenidoCentralIndividual">
                 <div className="row contenidoProductoIndividual">
                     <div className="col-12 col-md-6">
                         <img
