@@ -80,7 +80,7 @@ export const ListaCarrito = () => {
     return (
         <>
             <Header />
-            <div className="container contenidoCentral">
+            <div className="container contenidoCentralIndividual">
                 <h2 className="tituloListaCompra">Lista de la compra</h2>
                 {listaCarrito.length !== 0 && (
                     <div>
