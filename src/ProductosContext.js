@@ -1,6 +1,4 @@
 import React, { useState, createContext, useEffect } from "react";
-import ProductosPrincipales from "./Componentes/ProductosPrincipales";
-
 export const ProductosContext = createContext();
 
 export const ModeladoContext = (props) => {

@@ -62,7 +62,6 @@ export const NewUser = () => {
         };
 
         const login = async (e) => {
-            // e.preventDefault();
             setLoadingInfo(false);
             const datosLogin = {
                 Email: newUsuario.Email,

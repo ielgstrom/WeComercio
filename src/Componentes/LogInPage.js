@@ -1,4 +1,3 @@
-import Footer from "./Footer";
 import Header from "./Header";
 import { useHistory } from "react-router-dom";
 import { useState, useContext } from "react";
