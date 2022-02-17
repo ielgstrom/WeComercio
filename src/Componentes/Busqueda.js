@@ -32,6 +32,7 @@ export const Busqueda = () => {
                     <>
                         <div>
                             <h2>Resultados de: {busquedaQuery}</h2>
+                            <h3>Filtrar Por:</h3>
                             <div className="row">
                                 {elementosBusqueda.productoDeBusquedaEncontrado.map(
                                     (productoBuscado) => (

@@ -85,11 +85,11 @@ export const ListaCarrito = () => {
                 {listaCarrito.length !== 0 && (
                     <div>
                         <div className="row">
-                            <h3 className="col-7">Producto</h3>
-                            <h3 className="col-1">Precio</h3>
-                            <h3 className="col-2">Cantidad</h3>
-                            <h3 className="col-1">Total</h3>
-                            <h3 className="col-1">Eliminar</h3>
+                            <h3 className="col-7 descrListaCompra">Producto</h3>
+                            <h3 className="col-1 descrListaCompra">Precio</h3>
+                            <h3 className="col-2 descrListaCompra">Cantidad</h3>
+                            <h3 className="col-1 descrListaCompra">Total</h3>
+                            <h3 className="col-1 descrListaCompra">Eliminar</h3>
                         </div>
                         {listaCarrito.map((producto, i) => (
                             <>

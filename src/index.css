@@ -102,6 +102,12 @@ h1 .defaultearLink.titulo {
         width: 85% !important;
         margin-left: auto !important;
         margin-right: auto !important;
+        position: relative;
+        right: 8%;
+    }
+
+    .botonConfig {
+        position: relative;
     }
     .botonLogin {
         transform: translateX(0) !important;
@@ -129,6 +135,19 @@ h1 .defaultearLink.titulo {
     font-size: 1.2em !important;
     border-radius: 8px !important;
 }
+.botonConfig {
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    width: 40%;
+    background-color: rgb(230, 230, 230) !important;
+    color: black !important;
+    border: 2px solid rgb(188, 188, 188) !important;
+    transform: translateX(10%);
+    font-weight: 500 !important;
+    font-size: 1.2em !important;
+    border-radius: 8px !important;
+}
 .botonYaTengo {
     margin-top: 20px;
     margin-right: 20px;
@@ -147,6 +166,9 @@ h1 .defaultearLink.titulo {
 }
 .botonNewUser:hover {
     background-color: white !important;
+}
+.botonConfig:hover {
+    background-color: rgb(255, 255, 255) !important;
 }
 footer {
     background-color: rgb(182, 182, 182);
@@ -414,8 +436,8 @@ input[type="number"] {
     -moz-appearance: textfield;
 }
 .eliminarDeCarrito {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
 }
 .eliminarDeCarrito:hover {
     color: grey;
@@ -481,6 +503,9 @@ input[type="number"] {
         height: 30px;
         width: 30px;
     }
+    .descrListaCompra {
+        font-size: 1.3em;
+    }
 }
 @media (max-width: 768px) {
     p {
@@ -519,7 +544,7 @@ input[type="number"] {
     }
     .contacteFooter {
         margin: 0 !important;
-        display: block;
+        display: flex;
         align-items: center;
         justify-content: center;
     }
