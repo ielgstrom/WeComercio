@@ -3,7 +3,9 @@ import { FiShoppingCart, FiUserPlus, FiUser } from "react-icons/fi";
 import { Link, useHistory, NavLink } from "react-router-dom";
 import { useState, useContext } from "react";
 import { ProductosContext } from "../ProductosContext";
+import { useTranslation } from "react-i18next";
 export const Header = () => {
+    const [t, i18n] = useTranslation("global");
     const { listaCarrito, setListaCarrito, setEstaLogueado, estaLogueado } =
         useContext(ProductosContext);
     const [datosLogin, setDatosLogin] = useState({ Email: "", Contraseña: "" });
@@ -17,10 +19,6 @@ export const Header = () => {
         e.preventDefault();
         history.push(`/busqueda?item=${textBuscador.busqueda}`);
     };
-    const [verCategorias, setVerCategorias] = useState(false);
-    const viewCategorias = () => {
-        setVerCategorias(!verCategorias);
-    };
     const loguearUsuario = () => {
         setEstaLogueado(true);
     };
@@ -30,22 +28,6 @@ export const Header = () => {
         localStorage.removeItem("token");
         setListaCarrito([]);
     };
-    //intento de que al clickar fuera, se quitara el menu
-    // useEffect(() => {
-    //     const checkIfClickedOutside = (e) => {
-    //         if (
-    //             verCategorias &&
-    //             ref.current &&
-    //             !ref.current.contains(e.target)
-    //         ) {
-    //             setVerCategorias(true);
-    //         }
-    //     };
-    //     document.addEventListener("mousedown", checkIfClickedOutside);
-    //     return () => {
-    //         document.removeEventListener("mousedown", checkIfClickedOutside);
-    //     };
-    // }, [verCategorias]);
     const handleEmail = (e) => {
         setDatosLogin({ ...datosLogin, Email: e.target.value });
     };
@@ -190,12 +172,90 @@ export const Header = () => {
                 )}
             </div>
             <div className="row headerSecond">
-                <nav className="col-4">
-                    <small type="button" onClick={viewCategorias}>
+                <div className="dropdown col-4">
+                    <button
+                        className="dropdown-toggle btn col-4"
+                        id="dropdownMenuLink"
+                        data-toggle="dropdown"
+                        type="button"
+                        aria-expanded="false"
+                    >
                         Categorias
-                    </small>
-                </nav>
-                <BiWorld className="col-4 iconoHeader" />
+                    </button>
+                    <div
+                        className="dropdown-menu"
+                        aria-labelledby="dropdownMenuButton"
+                    >
+                        <Link
+                            className="defaultearLink dropdown-item"
+                            to="/busquedaCategorias/Objeto-maldito"
+                        >
+                            {" "}
+                            Objeto maldito
+                        </Link>
+                        <Link
+                            className="defaultearLink dropdown-item"
+                            to="/busquedaCategorias/Objeto-bendecido"
+                        >
+                            {" "}
+                            Objeto bendecido
+                        </Link>
+                        <Link
+                            className="defaultearLink dropdown-item"
+                            to="/busquedaCategorias/Fragmentos-del-Universo"
+                        >
+                            {" "}
+                            Fragmentos del Universo
+                        </Link>
+                        <Link
+                            className="defaultearLink dropdown-item"
+                            to="/busquedaCategorias/Resto-de-Dioses"
+                        >
+                            {" "}
+                            Resto de Dioses
+                        </Link>
+                        <Link
+                            className="defaultearLink dropdown-item"
+                            to="/busquedaCategorias/Desconocido"
+                        >
+                            {" "}
+                            Desconocido
+                        </Link>
+                    </div>
+                </div>
+                <div className="dropdown">
+                    <BiWorld
+                        className="col-4 btn btn-secondary iconoHeader dropdown-toggle"
+                        type="button"
+                        id="dropdownLangButton"
+                        data-toggle="dropdown"
+                        aria-expanded="false"
+                    />
+                    <div
+                        class="dropdown-menu"
+                        aria-labelledby="dropdownLangButton"
+                    >
+                        <small
+                            className="dropdown-item"
+                            onClick={() => i18n.changeLanguage("es")}
+                        >
+                            ES
+                        </small>
+                        <small
+                            className="dropdown-item"
+                            onClick={() => i18n.changeLanguage("cat")}
+                        >
+                            CAT
+                        </small>
+                        <small
+                            className="dropdown-item"
+                            onClick={() => i18n.changeLanguage("eng")}
+                        >
+                            ENG
+                        </small>
+                    </div>
+                </div>
+
                 <div className="col-4 iconoHeader">
                     <Link to="/Carrito" className="defaultearLink">
                         {listaCarrito.length === 0 && <div></div>}
@@ -211,49 +271,6 @@ export const Header = () => {
                     </Link>
                 </div>
             </div>
-            {verCategorias && (
-                <div className="row dropdownMenu">
-                    <ul>
-                        <Link
-                            className="defaultearLink"
-                            to="/busquedaCategorias/Objeto-maldito"
-                            onClick={() => setVerCategorias(false)}
-                        >
-                            <li className="tituloMenuDropdown">
-                                Objeto maldito
-                            </li>
-                        </Link>
-                        <Link
-                            className="defaultearLink"
-                            to="/busquedaCategorias/Objeto-bendecido"
-                            onClick={() => setVerCategorias(false)}
-                        >
-                            <li>Objeto bendecido</li>
-                        </Link>
-                        <Link
-                            className="defaultearLink"
-                            to="/busquedaCategorias/Fragmentos-del-Universo"
-                            onClick={() => setVerCategorias(false)}
-                        >
-                            <li>Fragmentos del Universo</li>
-                        </Link>
-                        <Link
-                            className="defaultearLink"
-                            to="/busquedaCategorias/Resto-de-Dioses"
-                            onClick={() => setVerCategorias(false)}
-                        >
-                            <li>Resto de Dioses</li>
-                        </Link>
-                        <Link
-                            className="defaultearLink"
-                            to="/busquedaCategorias/Desconocido"
-                            onClick={() => setVerCategorias(false)}
-                        >
-                            <li>Desconocido</li>
-                        </Link>{" "}
-                    </ul>
-                </div>
-            )}
         </header>
     );
 };

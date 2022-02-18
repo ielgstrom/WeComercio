@@ -4,26 +4,21 @@ import Footer from "./Footer";
 import Header from "./Header";
 import { useContext } from "react";
 import { ProductosContext } from "../ProductosContext";
+import { useTranslation } from "react-i18next";
 export const ProductosPrincipales = () => {
+    const [t, i18n] = useTranslation("global");
     const { listaProductos } = useContext(ProductosContext);
     return (
         <>
             <Header />
             <div className="contenidoCentral">
                 <div className="productos row justify-content-between p-0">
-                    <p>
-                        Bienvenido a mi página web de compras. Esta página no es
-                        100% seria y solo está hecha para enseñar y mostrar mis
-                        habilidades con HTML, CSS, JS, REACT entre otros. He
-                        hecho servir React como framework para el Front-End,
-                        MongoDB como base de datos y NODE con la libreria
-                        Express como Back-End
-                    </p>
+                    <span>{t("header.self-description")}</span>
                     <div
                         className="categoriasBuscador col-12 col-md-3 "
                         type="button"
                     >
-                        Ofertas
+                        {t("header.hello-world")}
                     </div>
                     <div
                         className="categoriasBuscador col-12 col-md-3 "

@@ -1,0 +1,6 @@
+{
+    "header": {
+        "hello-world": "Hola Mon",
+        "self-description": "Benvolgut a la meva pàgina web de compres. Aquesta pagina no es 100% seria i només està feta per ensenyar i mostrar les meves habilitats amb HTML, CSS, JS, REACT entre d'altres. He fet servir React com a framework pel meu Front-End, MongoDB com a base de dades i NODE.js amb la llibreria Express com a Back-End"
+    }
+}

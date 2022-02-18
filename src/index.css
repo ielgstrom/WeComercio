@@ -23,16 +23,18 @@ h1 .defaultearLink.titulo {
     padding-bottom: 5px;
 }
 .headerSecond {
-    padding-top: 10px;
-    padding-bottom: 10px;
     display: flex;
     justify-content: space-between;
 }
 .iconoHeader {
+    margin-top: 3px;
     height: 27px;
     padding: 0;
     width: 27px;
     text-align: end;
+}
+.ajustes {
+    z-index: -1;
 }
 .buscador {
     border-right: 1px solid grey;
@@ -265,6 +267,9 @@ li {
     margin-top: 10px;
 }
 small.footerAdress {
+    font-size: 1.1rem !important;
+}
+.footerSomos {
     font-size: 1.1rem !important;
 }
 small {

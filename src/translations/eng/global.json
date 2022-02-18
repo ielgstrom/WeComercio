@@ -1,0 +1,6 @@
+{
+    "header": {
+        "hello-world": "Hello World",
+        "self-description": "Welcome to my web page. This page is not 100% serious and it has only been made to show my habilities with HTML, CSS, JS, REACT among others. I've made use of React.js as a framework as my Front-End tool, MongoDB as my database and NODE.js with Express as the Back-End service"
+    }
+}

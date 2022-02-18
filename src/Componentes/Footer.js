@@ -5,7 +5,13 @@ export const Footer = () => {
         <>
             <footer className="container-fluid">
                 <ul className="row listaMainFooter">
-                    <li className="col-12 col-md-4"> Quien somos</li>
+                    <li className="col-12 col-md-4">
+                        {" "}
+                        Quien somos
+                        <ul className="footerSomos">Fundación</ul>
+                        <ul className="footerSomos">Ideales</ul>
+                        <ul className="footerSomos">Dirección</ul>
+                    </li>
                     <li className="col-12 col-md-4">Coleciones</li>
                     <li className="col-12 col-md-4">
                         Contacte
