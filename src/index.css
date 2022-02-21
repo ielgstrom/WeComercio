@@ -58,6 +58,7 @@ h1 .defaultearLink.titulo {
     border-color: aliceblue;
     border-radius: 20%;
     z-index: 5;
+    width: 70px;
 }
 .ajustes {
     z-index: -1;
