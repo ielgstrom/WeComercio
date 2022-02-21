@@ -26,12 +26,38 @@ h1 .defaultearLink.titulo {
     display: flex;
     justify-content: space-between;
 }
+.spinner-border {
+    position: relative;
+    left: 50%;
+    margin-top: 50px !important;
+    margin-bottom: 200px;
+}
+
+.dropdownLang {
+    position: relative;
+    left: -68px !important;
+    top: 8px !important;
+}
+.dropdownLang > small {
+    text-align: center;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
+.testing {
+    z-index: 1;
+}
 .iconoHeader {
     margin-top: 3px;
     height: 27px;
     padding: 0;
     width: 27px;
     text-align: end;
+}
+#dropdownLangButton {
+    background-color: rgb(145, 145, 145);
+    border-color: aliceblue;
+    border-radius: 20%;
+    z-index: 5;
 }
 .ajustes {
     z-index: -1;
@@ -204,7 +230,7 @@ footer {
     text-decoration: none;
     padding-left: 0;
     padding-right: 0;
-    padding-top: 200px;
+    padding-top: 300px;
     margin-top: 30px;
     border-radius: 15px;
     animation: loopcolor 0.5s infinite alternate;

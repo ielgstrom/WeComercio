@@ -8,12 +8,13 @@ import { useTranslation } from "react-i18next";
 export const ProductosPrincipales = () => {
     const [t, i18n] = useTranslation("global");
     const { listaProductos } = useContext(ProductosContext);
+
     return (
         <>
             <Header />
             <div className="contenidoCentral">
                 <div className="productos row justify-content-between p-0">
-                    <span>{t("header.self-description")}</span>
+                    <p>{t("header.self-description")}</p>
                     <div
                         className="categoriasBuscador col-12 col-md-3 "
                         type="button"

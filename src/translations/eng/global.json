@@ -1,6 +1,24 @@
 {
     "header": {
         "hello-world": "Hello World",
+        "categories": "Categories",
         "self-description": "Welcome to my web page. This page is not 100% serious and it has only been made to show my habilities with HTML, CSS, JS, REACT among others. I've made use of React.js as a framework as my Front-End tool, MongoDB as my database and NODE.js with Express as the Back-End service"
+    },
+    "settings": {
+        "title": "Account settings:",
+        "preferences": "Preferences",
+        "dark-mode": "Change to Dark Mode (In development)",
+        "save-cookies": "Save Cookies (In development)",
+        "prefered-Lang": "Prefered Language",
+        "avaliable-Lang": "Languages avaliables:",
+        "Who-are-we": "Who are we?",
+        "des-who-are-we": "I'm a programmer doing my projects",
+        "objective": "What's the goal of this page?",
+        "des-objective": "To learn to code by my own!",
+        "work": "Are you open to work?",
+        "des-work": "Of course! I'm eager to work!",
+        "delete-account": "Delte account",
+        "del-are-you-sure": "Once deleted your account, you won't be able to see your buying records nor solicitate information from your bought products",
+        "del-question": "Are you sure?"
     }
 }

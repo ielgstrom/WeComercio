@@ -30,6 +30,10 @@ export const ProductoIndividual = () => {
             );
             const productos = await respuesta.json();
             setProductoIndividualYSimilares(productos);
+            // setProductoIndividualYSimilares({
+            //     productoEncontrado: {},
+            //     productosSugeridos: [],
+            // });
         };
         fetchData();
     }, [idprod]);
@@ -38,86 +42,99 @@ export const ProductoIndividual = () => {
         <>
             <Header listaCarrito={listaCarrito} />
             <div className=" container contenidoCentralIndividual">
-                <div className="row contenidoProductoIndividual">
-                    <div className="col-12 col-md-6">
-                        <img
-                            src={pandoras_box}
-                            alt="imagen"
-                            className="imagenProducto"
-                        />
+                {ProductoIndividualYSimilares.productoEncontrado?.Nombre ===
+                undefined ? (
+                    <div
+                        className="spinner-border row justify-content-center"
+                        role="status"
+                    >
+                        <span className="sr-only col">Loading...</span>
                     </div>
-                    <div className="nombreProducto col-12 col-md-6">
-                        <h2>
-                            {
-                                ProductoIndividualYSimilares.productoEncontrado
-                                    .Nombre
-                            }
-                        </h2>
-                        <h2 className="precioProducto">
-                            {`${ProductoIndividualYSimilares.productoEncontrado.Precio}€`}
-                        </h2>
-                        <h2 className="categoriaProducto">
-                            <Link
-                                className="defaultearLink"
-                                to={`/busquedaCategorias/${ProductoIndividualYSimilares.productoEncontrado.Categoria}`}
-                            >
+                ) : (
+                    <div className="row contenidoProductoIndividual">
+                        <div className="col-12 col-md-6">
+                            <img
+                                src={pandoras_box}
+                                alt="imagen"
+                                className="imagenProducto"
+                            />
+                        </div>
+                        <div className="nombreProducto col-12 col-md-6">
+                            <h2>
                                 {
                                     ProductoIndividualYSimilares
-                                        .productoEncontrado.Categoria
+                                        .productoEncontrado.Nombre
                                 }
-                            </Link>
-                        </h2>
-                        <div className="estrellasValoracion">
-                            {ProductoIndividualYSimilares.productoEncontrado
-                                .Estrellas >= 1 && <FaStar />}
-                            {ProductoIndividualYSimilares.productoEncontrado
-                                .Estrellas <= 1 && <FaRegStar />}
-                            {ProductoIndividualYSimilares.productoEncontrado
-                                .Estrellas >= 2 && <FaStar />}
-                            {ProductoIndividualYSimilares.productoEncontrado
-                                .Estrellas <= 2 && <FaRegStar />}
-                            {ProductoIndividualYSimilares.productoEncontrado
-                                .Estrellas >= 3 && <FaStar />}
-                            {ProductoIndividualYSimilares.productoEncontrado
-                                .Estrellas <= 3 && <FaRegStar />}
-                            {ProductoIndividualYSimilares.productoEncontrado
-                                .Estrellas >= 4 && <FaStar />}
-                            {ProductoIndividualYSimilares.productoEncontrado
-                                .Estrellas <= 4 && <FaRegStar />}
-                            {ProductoIndividualYSimilares.productoEncontrado
-                                .Estrellas >= 5 && <FaStar />}
-                        </div>
-                        <p className="descripcionProducto">
-                            {
-                                ProductoIndividualYSimilares.productoEncontrado
-                                    .Descripción
-                            }
-                        </p>
-                        <div className="row contenedorBotonesCompra">
-                            <div
-                                className="col-12 col-md-5 botonAñadirCarrito botonHoverAble"
-                                type="button"
-                                onClick={() =>
-                                    añadirElementoACarrito(
-                                        ProductoIndividualYSimilares.productoEncontrado
-                                    )
-                                }
-                            >
-                                <MdAddShoppingCart className="botonHoverAble" />{" "}
-                                Añadir al Carrito
+                            </h2>
+                            <h2 className="precioProducto">
+                                {`${ProductoIndividualYSimilares.productoEncontrado.Precio}€`}
+                            </h2>
+                            <h2 className="categoriaProducto">
+                                <Link
+                                    className="defaultearLink"
+                                    to={`/busquedaCategorias/${ProductoIndividualYSimilares.productoEncontrado.Categoria}`}
+                                >
+                                    {
+                                        ProductoIndividualYSimilares
+                                            .productoEncontrado.Categoria
+                                    }
+                                </Link>
+                            </h2>
+                            <div className="estrellasValoracion">
+                                {ProductoIndividualYSimilares.productoEncontrado
+                                    .Estrellas >= 1 && <FaStar />}
+                                {ProductoIndividualYSimilares.productoEncontrado
+                                    .Estrellas <= 1 && <FaRegStar />}
+                                {ProductoIndividualYSimilares.productoEncontrado
+                                    .Estrellas >= 2 && <FaStar />}
+                                {ProductoIndividualYSimilares.productoEncontrado
+                                    .Estrellas <= 2 && <FaRegStar />}
+                                {ProductoIndividualYSimilares.productoEncontrado
+                                    .Estrellas >= 3 && <FaStar />}
+                                {ProductoIndividualYSimilares.productoEncontrado
+                                    .Estrellas <= 3 && <FaRegStar />}
+                                {ProductoIndividualYSimilares.productoEncontrado
+                                    .Estrellas >= 4 && <FaStar />}
+                                {ProductoIndividualYSimilares.productoEncontrado
+                                    .Estrellas <= 4 && <FaRegStar />}
+                                {ProductoIndividualYSimilares.productoEncontrado
+                                    .Estrellas >= 5 && <FaStar />}
                             </div>
-                            <Link
-                                className="defaultearLink col-12 col-md-5 botonAñadirCarrito"
-                                to="/buynow"
-                            >
-                                <div className="botonHoverAble" type="button">
-                                    <BiGift className="botonHoverAble" />{" "}
-                                    Comprar Ahora
+                            <p className="descripcionProducto">
+                                {
+                                    ProductoIndividualYSimilares
+                                        .productoEncontrado.Descripción
+                                }
+                            </p>
+                            <div className="row contenedorBotonesCompra">
+                                <div
+                                    className="col-12 col-md-5 botonAñadirCarrito botonHoverAble"
+                                    type="button"
+                                    onClick={() =>
+                                        añadirElementoACarrito(
+                                            ProductoIndividualYSimilares.productoEncontrado
+                                        )
+                                    }
+                                >
+                                    <MdAddShoppingCart className="botonHoverAble" />{" "}
+                                    Añadir al Carrito
                                 </div>
-                            </Link>
+                                <Link
+                                    className="defaultearLink col-12 col-md-5 botonAñadirCarrito"
+                                    to="/buynow"
+                                >
+                                    <div
+                                        className="botonHoverAble"
+                                        type="button"
+                                    >
+                                        <BiGift className="botonHoverAble" />{" "}
+                                        Comprar Ahora
+                                    </div>
+                                </Link>
+                            </div>
                         </div>
                     </div>
-                </div>
+                )}
                 <div className="row">
                     <h2 className="col-12">{`Productos Parecidos`}</h2>
                     {ProductoIndividualYSimilares.productosSugeridos.map(

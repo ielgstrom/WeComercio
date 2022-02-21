@@ -1,6 +1,24 @@
 {
     "header": {
         "hello-world": "Hola Mundo",
+        "categories": "Categorias",
         "self-description": "Bienvenido a mi página web de compras. Esta página no es 100% seria y solo está hecha para enseñar y mostrar mis habilidades con HTML, CSS, JS, REACT entre otros. He hecho servir React como framework para el Front-End, MongoDB como base de datos y NODE con la libreria Express como Back-End"
+    },
+    "settings": {
+        "title": "Ajustes de la cuenta:",
+        "preferences": "Preferencias",
+        "dark-mode": "Cambiar a modo Oscuro (En desarrollo)",
+        "save-cookies": "Guardar Cookies (En desarrollo)",
+        "prefered-Lang": "Idioma preferente",
+        "avaliable-Lang": "Idiomas disponibles:",
+        "Who-are-we": "Quien somos?",
+        "des-who-are-we": "Soy un programador haciendo mis proyectos",
+        "objective": "Cual es la finalidad de esta pagina?",
+        "des-objective": "Aprender a programar por mi cuenta",
+        "work": "Estás abierto a trabajar?",
+        "des-work": "Claro, por supuesto! Tengo muchas ganas de trabajar!",
+        "delete-account": "Eliminar cuenta",
+        "del-are-you-sure": "Una vez eliminada tu cuenta, no podrás ver tus registros de compra ni solicitar información respecto a tus productos comprados",
+        "del-question": "Estás seguro?"
     }
 }

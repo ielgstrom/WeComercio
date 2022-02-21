@@ -180,7 +180,7 @@ export const Header = () => {
                         type="button"
                         aria-expanded="false"
                     >
-                        Categorias
+                        {t("header.categories")}
                     </button>
                     <div
                         className="dropdown-menu"
@@ -223,7 +223,7 @@ export const Header = () => {
                         </Link>
                     </div>
                 </div>
-                <div className="dropdown">
+                <div className="dropdown testing">
                     <BiWorld
                         className="col-4 btn btn-secondary iconoHeader dropdown-toggle"
                         type="button"
@@ -232,7 +232,7 @@ export const Header = () => {
                         aria-expanded="false"
                     />
                     <div
-                        class="dropdown-menu"
+                        class="dropdown-menu dropdownLang"
                         aria-labelledby="dropdownLangButton"
                     >
                         <small

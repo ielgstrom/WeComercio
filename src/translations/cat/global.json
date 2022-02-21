@@ -1,6 +1,24 @@
 {
     "header": {
         "hello-world": "Hola Mon",
+        "categories": "Categories",
         "self-description": "Benvolgut a la meva pàgina web de compres. Aquesta pagina no es 100% seria i només està feta per ensenyar i mostrar les meves habilitats amb HTML, CSS, JS, REACT entre d'altres. He fet servir React com a framework pel meu Front-End, MongoDB com a base de dades i NODE.js amb la llibreria Express com a Back-End"
+    },
+    "settings": {
+        "title": "Ajustaments del compte:",
+        "preferences": "Preferències",
+        "dark-mode": "Canviar a mode Fosc (En desenvolupament)",
+        "save-cookies": "Guardar Cookies (En desenvolupament)",
+        "prefered-Lang": "Idioma preferent",
+        "avaliable-Lang": "Idiomes disponibles:",
+        "Who-are-we": "Qui som?",
+        "des-who-are-we": "Soc un programador fent els meus projectes",
+        "objective": "Quina es la finalitat d'aquesta pàgina?",
+        "des-objective": "Aprendere a programar pel meu compte",
+        "work": "Estàs obert a treballar?",
+        "des-work": "Claro, evidentment! Tinc moltes ganes de treballar!",
+        "delete-account": "Eliminar compte",
+        "del-are-you-sure": "Un cop eliminat el teu compte, no podràs veure els tus registres de compra ni solicitar informació respecte als teus productes comprats",
+        "del-question": "Estàs segur?"
     }
 }

@@ -1,10 +1,12 @@
 import Header from "./Header";
+import { useTranslation } from "react-i18next";
 export const SettingsUser = () => {
+    const [t, i18n] = useTranslation("global");
     return (
         <>
             <Header />
             <div className="contenidoCentral">
-                <h1 className="mb-5">Ajustes de cuenta:</h1>
+                <h1 className="mb-5">{t("settings.title")}</h1>
                 <div className="accordion" id="accordionExample">
                     <div className="card">
                         <div className="card-header" id="headingOne">
@@ -17,7 +19,7 @@ export const SettingsUser = () => {
                                     aria-expanded="true"
                                     aria-controls="collapseOne"
                                 >
-                                    Preferencias
+                                    {t("settings.preferences")}
                                 </button>
                             </h2>
                         </div>
@@ -39,7 +41,7 @@ export const SettingsUser = () => {
                                         className="custom-control-label"
                                         for="customSwitchModoOscuro"
                                     >
-                                        Cambiar a modo Oscuro (En desarrollo)
+                                        {t("settings.dark-mode")}
                                     </label>
                                 </div>
                                 <div className="custom-control custom-switch m-3">
@@ -52,7 +54,7 @@ export const SettingsUser = () => {
                                         className="custom-control-label"
                                         for="customSwitchRastreo"
                                     >
-                                        Guardar Cookies (En desarrollo)
+                                        {t("settings.save-cookies")}
                                     </label>
                                 </div>
                             </div>
@@ -69,7 +71,7 @@ export const SettingsUser = () => {
                                     aria-expanded="false"
                                     aria-controls="collapseTwo"
                                 >
-                                    Idioma preferentes
+                                    {t("settings.prefered-Lang")}
                                 </button>
                             </h2>
                         </div>
@@ -80,7 +82,7 @@ export const SettingsUser = () => {
                             data-parent="#accordionExample"
                         >
                             <div className="card-body">
-                                <h5>Idiomas disponibles: </h5>
+                                <h5>{t("settings.avaliable-Lang")} </h5>
                             </div>
                         </div>
                     </div>
@@ -107,20 +109,19 @@ export const SettingsUser = () => {
                         >
                             <div className="card-body">
                                 <div className="mb-3">
-                                    <h3 className="mt-3">Quienes somos?</h3>
-                                    <div className="mb-4">
-                                        Soy un programador que voy haciendo de
-                                        las mias
-                                    </div>
-                                    <h3>
-                                        Qual es la finalidad de esta pagina?
+                                    <h3 className="mt-3">
+                                        {t("settings.Who-are-we")}
                                     </h3>
                                     <div className="mb-4">
-                                        Aprender a programar por mi cuenta
+                                        {t("settings.des-who-are-we")}
                                     </div>
-                                    <h3>Estás abierto a trabajar?</h3>
+                                    <h3>{t("settings.objective")}</h3>
                                     <div className="mb-4">
-                                        Claro por supuesto! Tengo muchas ganas
+                                        {t("settings.des-objective")}
+                                    </div>
+                                    <h3>{t("settings.work")}</h3>
+                                    <div className="mb-4">
+                                        {t("settings.des-work")}
                                     </div>
                                 </div>
                             </div>
@@ -137,7 +138,7 @@ export const SettingsUser = () => {
                                     aria-expanded="false"
                                     aria-controls="collapseThree"
                                 >
-                                    Eliminar Cuenta
+                                    {t("settings.delete-account")}
                                 </button>
                             </h2>
                         </div>
@@ -148,19 +149,18 @@ export const SettingsUser = () => {
                             data-parent="#accordionExample"
                         >
                             <div className="card-body">
-                                <h5 className="mt-3">Estás seguro?</h5>
+                                <h5 className="mt-3">
+                                    {t("settings.del-question")}
+                                </h5>
                                 <div className="mb-3">
-                                    Una vez eliminada tu cuenta no podrás ver
-                                    tus registros de compra ni solicitar
-                                    informacion respecto a tus productos
-                                    comprados
+                                    {t("settings.del-are-you-sure")}
                                 </div>
 
                                 <button
                                     type="button"
                                     className="btn btn-danger"
                                 >
-                                    Eliminar cuenta
+                                    {t("settings.delete-account")}
                                 </button>
                             </div>
                         </div>
