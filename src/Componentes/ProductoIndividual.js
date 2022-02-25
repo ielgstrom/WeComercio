@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useHistory } from "react-router-dom";
 import pandoras_box from "../pandoras_box.jpg";
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { MdAddShoppingCart } from "react-icons/md";
@@ -9,7 +9,7 @@ import Footer from "./Footer";
 import { ProductosContext } from "../ProductosContext";
 export const ProductoIndividual = () => {
     const { listaCarrito, setListaCarrito } = useContext(ProductosContext);
-
+    let history = useHistory();
     const { idprod } = useParams();
 
     const añadirElementoACarrito = (nuevoElemento) => {
@@ -30,14 +30,9 @@ export const ProductoIndividual = () => {
             );
             const productos = await respuesta.json();
             setProductoIndividualYSimilares(productos);
-            // setProductoIndividualYSimilares({
-            //     productoEncontrado: {},
-            //     productosSugeridos: [],
-            // });
         };
         fetchData();
     }, [idprod]);
-
     return (
         <>
             <Header listaCarrito={listaCarrito} />
@@ -121,11 +116,12 @@ export const ProductoIndividual = () => {
                                 </div>
                                 <Link
                                     className="defaultearLink col-12 col-md-5 botonAñadirCarrito"
-                                    to="/buynow"
+                                    to={`/buynow?item=${idprod}`}
                                 >
                                     <div
                                         className="botonHoverAble"
                                         type="button"
+                                        // onClick={buyElement}
                                     >
                                         <BiGift className="botonHoverAble" />{" "}
                                         Comprar Ahora

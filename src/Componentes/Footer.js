@@ -3,7 +3,7 @@ import { FaPhoneAlt, FaLinkedin } from "react-icons/fa";
 export const Footer = () => {
     return (
         <>
-            <footer className="container-fluid">
+            <footer className="container-fluid ">
                 <ul className="row listaMainFooter">
                     <li className="col-12 col-md-4">
                         {" "}

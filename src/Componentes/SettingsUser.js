@@ -1,7 +1,38 @@
 import Header from "./Header";
+import jwt_decode from "jwt-decode";
 import { useTranslation } from "react-i18next";
+import { useState, useContext } from "react";
+import { ProductosContext } from "../ProductosContext";
+import { useHistory, Link } from "react-router-dom";
 export const SettingsUser = () => {
     const [t, i18n] = useTranslation("global");
+    const { setEstaLogueado } = useContext(ProductosContext);
+    const [valuePass, setValuePass] = useState("");
+    const token = localStorage.getItem("token");
+    const { resultadoUsuarioSeguro } = jwt_decode(token);
+    let history = useHistory();
+    const handleLastPass = (e) => {
+        setValuePass(e.target.value);
+    };
+    const desloguearse = () => {
+        setEstaLogueado(false);
+        history.push("/");
+        localStorage.removeItem("token");
+    };
+    const delUser = async (e) => {
+        e.preventDefault();
+        await fetch(`https://back-wecomerce.herokuapp.com/usuario/delete`, {
+            method: "DELETE",
+            body: JSON.stringify({
+                Email: resultadoUsuarioSeguro.Email,
+                Contraseña: valuePass,
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        desloguearse();
+    };
     return (
         <>
             <Header />
@@ -83,6 +114,51 @@ export const SettingsUser = () => {
                         >
                             <div className="card-body">
                                 <h5>{t("settings.avaliable-Lang")} </h5>
+                                <div class="form-check form-check-inline">
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="inlineRadioOptions"
+                                        id="inlineRadio1"
+                                        value="option1"
+                                    />
+                                    <label
+                                        class="form-check-label"
+                                        for="inlineRadio1"
+                                    >
+                                        ES
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="inlineRadioOptions"
+                                        id="inlineRadio2"
+                                        value="option2"
+                                    />
+                                    <label
+                                        class="form-check-label"
+                                        for="inlineRadio2"
+                                    >
+                                        CAT
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="inlineRadioOptions"
+                                        id="inlineRadio3"
+                                        value="option3"
+                                    />
+                                    <label
+                                        class="form-check-label"
+                                        for="inlineRadio3"
+                                    >
+                                        ENG
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -159,9 +235,71 @@ export const SettingsUser = () => {
                                 <button
                                     type="button"
                                     className="btn btn-danger"
+                                    data-toggle="modal"
+                                    data-target="#exampleModal"
                                 >
                                     {t("settings.delete-account")}
                                 </button>
+                            </div>
+                        </div>
+                    </div>
+                    {/* Modal */}
+                    <div
+                        class="modal fade"
+                        id="exampleModal"
+                        tabindex="-1"
+                        role="dialog"
+                        aria-labelledby="exampleModalLabel"
+                        aria-hidden="true"
+                    >
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5
+                                        class="modal-title"
+                                        id="exampleModalLabel"
+                                    >
+                                        Confirmación
+                                    </h5>
+                                    <button
+                                        type="button"
+                                        class="close"
+                                        data-dismiss="modal"
+                                        aria-label="Close"
+                                    >
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Escribe tu contraseña para confirmar el
+                                    proceso
+                                </div>
+                                <form className="form-group" onSubmit={delUser}>
+                                    <input
+                                        type="password"
+                                        className="form-control inputDeletePass"
+                                        placeholder="Contraseña"
+                                        value={valuePass}
+                                        onChange={handleLastPass}
+                                    />
+                                    <div class="modal-footer">
+                                        <button
+                                            type="button"
+                                            class="btn btn-secondary"
+                                            data-dismiss="modal"
+                                        >
+                                            Cerrar
+                                        </button>
+                                        <button
+                                            type="submit"
+                                            class="btn btn-danger"
+                                            onClick={delUser}
+                                            data-dismiss="modal"
+                                        >
+                                            Eliminar cuenta
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

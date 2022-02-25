@@ -3,7 +3,7 @@ import jwt_decode from "jwt-decode";
 import Footer from "./Footer";
 import Header from "./Header";
 import { FiSettings } from "react-icons/fi";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
 import default_profile_foto from "../default_profile_foto.png";
 export const Perfil = () => {
@@ -17,6 +17,22 @@ export const Perfil = () => {
         localStorage.removeItem("token");
         setListaCarrito([]);
     };
+    // useEffect(() => {
+    //     const delUser = async () => {
+    //         await fetch(
+    //             `https://back-wecomerce.herokuapp.com/usuario/delete`,
+    //             {
+    //                 method: "DELETE",
+    //                 body: {
+    //                     Email: resultadoUsuarioSeguro.Email,
+    //                     Contraseña: resultadoUsuarioSeguro.Contraseña,
+    //                 },
+    //             },
+    //             history.push("/")
+    //         );
+    //     };
+    //     delUser();
+    // }, [resultadoUsuarioSeguro.Contraseña, resultadoUsuarioSeguro.Email]);
     return (
         <>
             <Header />
