@@ -29,7 +29,7 @@ export const BusquedaCategoria = () => {
                                 key={productoBuscado._id}
                             >
                                 <img
-                                    src={pandoras_box}
+                                    src={productoBuscado.urlImage}
                                     className="imagenMostrador"
                                     alt="imagen"
                                 />

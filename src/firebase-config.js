@@ -1,6 +1,8 @@
 import { initializeApp } from "firebase/app";
 import "dotenv/config";
 import { getAnalytics } from "firebase/analytics";
+import firebase from "firebase";
+import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
 
 const firebaseConfig = {
     apiKey: process.env.API_FIREBASE_KEY,
@@ -19,7 +21,5 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-
-const app = initializeApp(firebaseConfig);
-
-const analytics = getAnalytics(app);
+firebase.initializeApp(firebaseConfig);
+export default firebase;

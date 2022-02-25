@@ -50,7 +50,7 @@ export const ProductosPrincipales = () => {
                                 key={producto._id}
                             >
                                 <img
-                                    src={pandoras_box}
+                                    src={producto.urlImage}
                                     className="imagenMostrador"
                                     alt="imagen"
                                 />

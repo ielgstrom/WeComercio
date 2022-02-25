@@ -7,6 +7,7 @@ import { BiGift } from "react-icons/bi";
 import Header from "./Header";
 import Footer from "./Footer";
 import { ProductosContext } from "../ProductosContext";
+
 export const ProductoIndividual = () => {
     const { listaCarrito, setListaCarrito } = useContext(ProductosContext);
     let history = useHistory();
@@ -33,6 +34,7 @@ export const ProductoIndividual = () => {
         };
         fetchData();
     }, [idprod]);
+
     return (
         <>
             <Header listaCarrito={listaCarrito} />
@@ -49,7 +51,10 @@ export const ProductoIndividual = () => {
                     <div className="row contenidoProductoIndividual">
                         <div className="col-12 col-md-6">
                             <img
-                                src={pandoras_box}
+                                src={
+                                    ProductoIndividualYSimilares
+                                        .productoEncontrado.urlImage
+                                }
                                 alt="imagen"
                                 className="imagenProducto"
                             />
@@ -143,7 +148,7 @@ export const ProductoIndividual = () => {
                                     key={producto._id}
                                 >
                                     <img
-                                        src={pandoras_box}
+                                        src={producto.urlImage}
                                         className="imagenMostrador"
                                         alt="imagen"
                                     />
