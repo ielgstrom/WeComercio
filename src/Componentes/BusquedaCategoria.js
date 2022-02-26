@@ -1,26 +1,27 @@
 import Footer from "./Footer";
 import Header from "./Header";
-import pandoras_box from "../pandoras_box.jpg";
 import { Link, useParams } from "react-router-dom";
-import { useContext } from "react";
-import { ProductosContext } from "../ProductosContext";
-
+import { useState, useEffect } from "react";
 export const BusquedaCategoria = () => {
-    const { listaProductos } = useContext(ProductosContext);
     let { idCateg } = useParams();
-    const idCategFiltrado = idCateg.replaceAll("-", " ");
-
-    console.log(typeof idCateg);
-    const productosSeleccionados = listaProductos.filter(
-        (element) => element.Categoria === idCategFiltrado
-    );
+    const [prodCategoria, setProdCategoria] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+            const respuesta = await fetch(
+                `https://back-wecomerce.herokuapp.com/producto/busqueda/categoria/${idCateg}`
+            );
+            const productos = await respuesta.json();
+            setProdCategoria(productos);
+        };
+        fetchData();
+    }, [idCateg]);
     return (
         <>
             <Header />
             <div className="contenidoCentral">
-                <h2>Todos los productos de {idCategFiltrado}</h2>
+                <h2>Todos los productos de {idCateg.replaceAll("-", " ")}</h2>
                 <div className="row">
-                    {productosSeleccionados.map((productoBuscado) => (
+                    {prodCategoria.map((productoBuscado) => (
                         <>
                             <Link
                                 className="productoIndividual col-12 col-md-6 col-lg-4 "

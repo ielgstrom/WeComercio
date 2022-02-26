@@ -288,6 +288,7 @@ img {
     height: 250px !important;
     height: auto;
     object-fit: cover;
+    transition: all 0.2s ease-out;
 }
 .productoIndividual.productoIndividual {
     padding-left: 0;

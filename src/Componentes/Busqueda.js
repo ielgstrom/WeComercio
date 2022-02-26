@@ -21,7 +21,7 @@ export const Busqueda = () => {
             setElementosBusqueda(querysFiltrados);
         };
         fetchData();
-    }, [busquedaQuery, elementosBusqueda]);
+    }, [busquedaQuery]);
     return (
         <>
             <Header />
@@ -61,7 +61,9 @@ export const Busqueda = () => {
                                                 key={productoBuscado._id}
                                             >
                                                 <img
-                                                    src={pandoras_box}
+                                                    src={
+                                                        productoBuscado.urlImage
+                                                    }
                                                     className="imagenMostrador"
                                                     alt="imagen"
                                                 />
