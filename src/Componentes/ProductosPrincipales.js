@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import pandoras_box from "../pandoras_box.jpg";
 import Footer from "./Footer";
 import Header from "./Header";
 import { useContext } from "react";

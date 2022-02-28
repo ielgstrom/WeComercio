@@ -85,20 +85,26 @@ export const ListaCarrito = () => {
                 {listaCarrito.length !== 0 && (
                     <div>
                         <div className="row">
-                            <h3 className="col-7 descrListaCompra">Producto</h3>
-                            <h3 className="col-1 descrListaCompra">Precio</h3>
-                            <h3 className="col-2 descrListaCompra">Cantidad</h3>
+                            <h3 className="col-6 descrListaCompraTitle">
+                                Producto
+                            </h3>
+                            <h3 className="col-1  descrListaCompra">Precio</h3>
+                            <h3 className="col-2  descrListaCompra">
+                                Cantidad
+                            </h3>
                             <h3 className="col-1 descrListaCompra">Total</h3>
-                            <h3 className="col-1 descrListaCompra">Eliminar</h3>
+                            <h3 className="col-2  descrListaCompra">
+                                Eliminar
+                            </h3>
                         </div>
                         {listaCarrito.map((producto, i) => (
                             <>
-                                <div className="row productoIndivCompra">
-                                    <div className="col-5 col-md-7 nombreProductoCarrito">
+                                <div className="row productoIndivCompra align-items-center ">
+                                    <div className="col-4 col-md-6 nombreProductoCarrito">
                                         {producto.Nombre}
                                     </div>
-                                    <div className="col-2 col-md-1">{`${producto.Precio}€`}</div>
-                                    <div className="col-2">
+                                    <div className="col-2 col-md-1 p-0">{`${producto.Precio}€`}</div>
+                                    <div className="col-2 p-0">
                                         <form>
                                             <input
                                                 type="button"
@@ -137,19 +143,21 @@ export const ListaCarrito = () => {
                                             />
                                         </form>
                                     </div>
-                                    <div className="col-2 col-md-1">
+                                    <div className="col-2 col-md-1 p-0">
                                         {`${
                                             producto.Precio *
                                             listaCarrito[i].numerodeCompras
                                         }€`}
                                     </div>
-                                    <BiX
-                                        type="button"
-                                        className="col-1 eliminarDeCarrito"
-                                        onClick={() =>
-                                            eliminarElemento(producto)
-                                        }
-                                    />
+                                    <div className="col-2">
+                                        <BiX
+                                            type="button"
+                                            className="eliminarDeCarrito"
+                                            onClick={() =>
+                                                eliminarElemento(producto)
+                                            }
+                                        />
+                                    </div>
                                 </div>
                             </>
                         ))}
