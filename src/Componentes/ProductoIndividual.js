@@ -41,130 +41,153 @@ export const ProductoIndividual = () => {
             <div className=" container contenidoCentralIndividual">
                 {ProductoIndividualYSimilares.productoEncontrado?.Nombre ===
                 undefined ? (
-                    <div
-                        className="spinner-border row justify-content-center"
-                        role="status"
-                    >
-                        <span className="sr-only col">Loading...</span>
+                    <div className="row">
+                        <div className="productoIndividualLoad col-12 col-md-6 "></div>
+                        <div className="col-12 col-md-6">
+                            <div className="loadText loadName"></div>
+                            <div className="loadText loadPrice"></div>
+                            <div className="loadText loadDescription"></div>
+                        </div>
                     </div>
                 ) : (
-                    <div className="row contenidoProductoIndividual">
-                        <div className="col-12 col-md-6">
-                            <img
-                                src={
-                                    ProductoIndividualYSimilares
-                                        .productoEncontrado.urlImage
-                                }
-                                alt="imagen"
-                                className="imagenProducto"
-                            />
-                        </div>
-                        <div className="nombreProducto col-12 col-md-6">
-                            <h2>
-                                {
-                                    ProductoIndividualYSimilares
-                                        .productoEncontrado.Nombre
-                                }
-                            </h2>
-                            <h2 className="precioProducto">
-                                {`${ProductoIndividualYSimilares.productoEncontrado.Precio}€`}
-                            </h2>
-                            <h2 className="categoriaProducto">
-                                <Link
-                                    className="defaultearLink"
-                                    to={`/busquedaCategorias/${ProductoIndividualYSimilares.productoEncontrado.Categoria}`}
-                                >
+                    <>
+                        <div className="row contenidoProductoIndividual">
+                            <div className="col-12 col-md-6">
+                                <img
+                                    src={
+                                        ProductoIndividualYSimilares
+                                            .productoEncontrado.urlImage
+                                    }
+                                    alt="imagen"
+                                    className="imagenProducto"
+                                />
+                            </div>
+                            <div className="nombreProducto col-12 col-md-6">
+                                <h2>
                                     {
                                         ProductoIndividualYSimilares
-                                            .productoEncontrado.Categoria
+                                            .productoEncontrado.Nombre
                                     }
-                                </Link>
-                            </h2>
-                            <div className="estrellasValoracion">
-                                {ProductoIndividualYSimilares.productoEncontrado
-                                    .Estrellas >= 1 && <FaStar />}
-                                {ProductoIndividualYSimilares.productoEncontrado
-                                    .Estrellas <= 1 && <FaRegStar />}
-                                {ProductoIndividualYSimilares.productoEncontrado
-                                    .Estrellas >= 2 && <FaStar />}
-                                {ProductoIndividualYSimilares.productoEncontrado
-                                    .Estrellas <= 2 && <FaRegStar />}
-                                {ProductoIndividualYSimilares.productoEncontrado
-                                    .Estrellas >= 3 && <FaStar />}
-                                {ProductoIndividualYSimilares.productoEncontrado
-                                    .Estrellas <= 3 && <FaRegStar />}
-                                {ProductoIndividualYSimilares.productoEncontrado
-                                    .Estrellas >= 4 && <FaStar />}
-                                {ProductoIndividualYSimilares.productoEncontrado
-                                    .Estrellas <= 4 && <FaRegStar />}
-                                {ProductoIndividualYSimilares.productoEncontrado
-                                    .Estrellas >= 5 && <FaStar />}
-                            </div>
-                            <p className="descripcionProducto">
-                                {
-                                    ProductoIndividualYSimilares
-                                        .productoEncontrado.Descripción
-                                }
-                            </p>
-                            <div className="row contenedorBotonesCompra">
-                                <div
-                                    className="col-12 col-md-5 botonAñadirCarrito botonHoverAble"
-                                    type="button"
-                                    onClick={() =>
-                                        añadirElementoACarrito(
-                                            ProductoIndividualYSimilares.productoEncontrado
-                                        )
-                                    }
-                                >
-                                    <MdAddShoppingCart className="botonHoverAble" />{" "}
-                                    Añadir al Carrito
-                                </div>
-                                <Link
-                                    className="defaultearLink col-12 col-md-5 botonAñadirCarrito"
-                                    to={`/buynow?item=${idprod}`}
-                                >
-                                    <div
-                                        className="botonHoverAble"
-                                        type="button"
-                                        // onClick={buyElement}
+                                </h2>
+                                <h2 className="precioProducto">
+                                    {`${ProductoIndividualYSimilares.productoEncontrado.Precio}€`}
+                                </h2>
+                                <h2 className="categoriaProducto">
+                                    <Link
+                                        className="defaultearLink"
+                                        to={`/busquedaCategorias/${ProductoIndividualYSimilares.productoEncontrado.Categoria}`}
                                     >
-                                        <BiGift className="botonHoverAble" />{" "}
-                                        Comprar Ahora
+                                        {
+                                            ProductoIndividualYSimilares
+                                                .productoEncontrado.Categoria
+                                        }
+                                    </Link>
+                                </h2>
+                                <div className="estrellasValoracion">
+                                    {ProductoIndividualYSimilares
+                                        .productoEncontrado.Estrellas >= 1 && (
+                                        <FaStar />
+                                    )}
+                                    {ProductoIndividualYSimilares
+                                        .productoEncontrado.Estrellas <= 1 && (
+                                        <FaRegStar />
+                                    )}
+                                    {ProductoIndividualYSimilares
+                                        .productoEncontrado.Estrellas >= 2 && (
+                                        <FaStar />
+                                    )}
+                                    {ProductoIndividualYSimilares
+                                        .productoEncontrado.Estrellas <= 2 && (
+                                        <FaRegStar />
+                                    )}
+                                    {ProductoIndividualYSimilares
+                                        .productoEncontrado.Estrellas >= 3 && (
+                                        <FaStar />
+                                    )}
+                                    {ProductoIndividualYSimilares
+                                        .productoEncontrado.Estrellas <= 3 && (
+                                        <FaRegStar />
+                                    )}
+                                    {ProductoIndividualYSimilares
+                                        .productoEncontrado.Estrellas >= 4 && (
+                                        <FaStar />
+                                    )}
+                                    {ProductoIndividualYSimilares
+                                        .productoEncontrado.Estrellas <= 4 && (
+                                        <FaRegStar />
+                                    )}
+                                    {ProductoIndividualYSimilares
+                                        .productoEncontrado.Estrellas >= 5 && (
+                                        <FaStar />
+                                    )}
+                                </div>
+                                <p className="descripcionProducto">
+                                    {
+                                        ProductoIndividualYSimilares
+                                            .productoEncontrado.Descripción
+                                    }
+                                </p>
+                                <div className="row contenedorBotonesCompra">
+                                    <div
+                                        className="col-12 col-md-5 botonAñadirCarrito botonHoverAble"
+                                        type="button"
+                                        onClick={() =>
+                                            añadirElementoACarrito(
+                                                ProductoIndividualYSimilares.productoEncontrado
+                                            )
+                                        }
+                                    >
+                                        <MdAddShoppingCart className="botonHoverAble" />{" "}
+                                        Añadir al Carrito
                                     </div>
-                                </Link>
+                                    <Link
+                                        className="defaultearLink col-12 col-md-5 botonAñadirCarrito"
+                                        to={`/buynow?item=${idprod}`}
+                                    >
+                                        <div
+                                            className="botonHoverAble"
+                                            type="button"
+                                            // onClick={buyElement}
+                                        >
+                                            <BiGift className="botonHoverAble" />{" "}
+                                            Comprar Ahora
+                                        </div>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
-                    </div>
+
+                        <div className="row">
+                            <h2 className="col-12 mt-4">{`Productos Parecidos`}</h2>
+                            {ProductoIndividualYSimilares.productosSugeridos.map(
+                                (producto) => (
+                                    <>
+                                        <Link
+                                            className="productoIndividual col-12 col-md-6 col-lg-4 "
+                                            type="button"
+                                            to={`/producto/${producto._id}`}
+                                            key={producto._id}
+                                        >
+                                            <img
+                                                src={producto.urlImage}
+                                                className="imagenMostrador"
+                                                alt="imagen"
+                                            />
+                                            <div className="flex-container space-between">
+                                                <small className="flex-item">
+                                                    {producto.Nombre}
+                                                </small>
+                                                <small className="flex-item">
+                                                    {`${producto.Precio}€`}
+                                                </small>
+                                            </div>
+                                        </Link>
+                                    </>
+                                )
+                            )}
+                        </div>
+                    </>
                 )}
-                <div className="row">
-                    <h2 className="col-12">{`Productos Parecidos`}</h2>
-                    {ProductoIndividualYSimilares.productosSugeridos.map(
-                        (producto) => (
-                            <>
-                                <Link
-                                    className="productoIndividual col-12 col-md-6 col-lg-4 "
-                                    type="button"
-                                    to={`/producto/${producto._id}`}
-                                    key={producto._id}
-                                >
-                                    <img
-                                        src={producto.urlImage}
-                                        className="imagenMostrador"
-                                        alt="imagen"
-                                    />
-                                    <div className="flex-container space-between">
-                                        <small className="flex-item">
-                                            {producto.Nombre}
-                                        </small>
-                                        <small className="flex-item">
-                                            {`${producto.Precio}€`}
-                                        </small>
-                                    </div>
-                                </Link>
-                            </>
-                        )
-                    )}
-                </div>
             </div>
             <Footer />
         </>

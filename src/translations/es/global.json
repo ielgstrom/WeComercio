@@ -20,5 +20,18 @@
         "delete-account": "Eliminar cuenta",
         "del-are-you-sure": "Una vez eliminada tu cuenta, no podrás ver tus registros de compra ni solicitar información respecto a tus productos comprados",
         "del-question": "Estás seguro?"
+    },
+    "shoppingcart": {
+        "title": "Lista de la compra",
+        "product": "Poducto",
+        "price": "Precio",
+        "quantity": "Cantidad",
+        "total": "Total",
+        "delete": "Eliminar",
+        "pay": "Pagar",
+        "nothing": "No tienes nada en el carrito",
+        "return": "Volver a la pagina principal",
+        "alert1": "Seguro que quieres elimiar ",
+        "alert2": " de tu carrito de la compra?"
     }
 }

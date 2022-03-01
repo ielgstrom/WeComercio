@@ -5,8 +5,10 @@ import { useContext } from "react";
 import { BiX } from "react-icons/bi";
 import { BiGift } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export const ListaCarrito = () => {
+    const [t, i18n] = useTranslation("global");
     const { listaCarrito, setListaCarrito } = useContext(ProductosContext);
 
     const augmentarCantidad = (producto, index) => {
@@ -63,7 +65,9 @@ export const ListaCarrito = () => {
     const eliminarElemento = (elemento) => {
         if (
             window.confirm(
-                `Seguro que quieres eliminar "${elemento.Nombre}" de tu carrito de compra?`
+                `${t("shoppingcart.alert1")}"${elemento.Nombre}"${t(
+                    "shoppingcart.alert2"
+                )}`
             )
         ) {
             setListaCarrito(listaCarrito.filter((item) => item !== elemento));
@@ -81,20 +85,22 @@ export const ListaCarrito = () => {
         <>
             <Header />
             <div className="container contenidoCentralIndividual">
-                <h2 className="tituloListaCompra">Lista de la compra</h2>
+                <h2 className="tituloListaCompra">{t("shoppingcart.title")}</h2>
                 {listaCarrito.length !== 0 && (
                     <div>
                         <div className="row">
                             <h3 className="col-6 descrListaCompraTitle">
-                                Producto
+                                {t("shoppingcart.product")}
                             </h3>
-                            <h3 className="col-1  descrListaCompra">Precio</h3>
+                            <h3 className="col-1  descrListaCompra">
+                                {t("shoppingcart.price")}
+                            </h3>
                             <h3 className="col-2  descrListaCompra">
-                                Cantidad
+                                {t("shoppingcart.quantity")}
                             </h3>
                             <h3 className="col-1 descrListaCompra">Total</h3>
                             <h3 className="col-2  descrListaCompra">
-                                Eliminar
+                                {t("shoppingcart.delete")}
                             </h3>
                         </div>
                         {listaCarrito.map((producto, i) => (
@@ -161,7 +167,9 @@ export const ListaCarrito = () => {
                                 </div>
                             </>
                         ))}
-                        <h2 className="preciofinal">{`Precio: ${precioTotal}€`}</h2>
+                        <h2 className="preciofinal">{`${t(
+                            "shoppingcart.pay"
+                        )}: ${precioTotal}€`}</h2>
 
                         <div className="row justify-content-center">
                             <Link
@@ -169,17 +177,18 @@ export const ListaCarrito = () => {
                                 type="button"
                                 to="/buynow"
                             >
-                                <BiGift className="botonHoverAble" /> Pagar
+                                <BiGift className="botonHoverAble" />{" "}
+                                {t("shoppingcart.pay")}
                             </Link>
                         </div>
                     </div>
                 )}
                 {listaCarrito.length === 0 && (
                     <>
-                        <h2>No tienes nada en el carrito</h2>
+                        <h2>{t("shoppingcart.nothing")}</h2>
                         <h4>
                             <Link to="/" className="defaultearLink">
-                                Volver a la pagina principal
+                                {t("shoppingcart.return")}
                             </Link>
                         </h4>
                     </>

@@ -264,6 +264,34 @@ footer {
     border-radius: 15px;
     animation: loopcolor 0.5s infinite alternate;
 }
+.loadText {
+    border: 10px solid rgb(255, 255, 255);
+    background-color: rgb(188, 188, 188);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    color: rgb(33, 33, 33);
+    text-decoration: none;
+    padding-left: 0;
+    padding-right: 0;
+    /* padding-top: 30px;
+    margin-top: 30px; */
+    border-radius: 15px;
+    animation: loopcolor 0.5s infinite alternate;
+}
+.loadName {
+    padding-top: 45px;
+    margin-top: 30px;
+    width: 50%;
+    margin-bottom: 0px;
+}
+.loadPrice {
+    padding-top: 45px;
+    width: 30%;
+}
+.loadDescription {
+    padding-top: 150px;
+    width: 100%;
+}
 @keyframes loopcolor {
     from {
         background-color: rgb(174, 174, 174);
@@ -402,7 +430,11 @@ p {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
+    transform: scale(1.2);
+    border-radius: 7px;
+    width: 80%;
+    position: relative;
+    top: 35px;
 }
 .descripcionProducto {
     font-size: 1.2em;
@@ -552,6 +584,9 @@ input[type="number"] {
     .contenidoCentral {
         margin-right: 100px;
         margin-left: 100px;
+    }
+    .imagenProducto {
+        transform: scale(1);
     }
     .loginInicioContra,
     .loginInicioUser {

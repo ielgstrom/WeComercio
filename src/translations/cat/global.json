@@ -20,5 +20,18 @@
         "delete-account": "Eliminar compte",
         "del-are-you-sure": "Un cop eliminat el teu compte, no podràs veure els tus registres de compra ni solicitar informació respecte als teus productes comprats",
         "del-question": "Estàs segur?"
+    },
+    "shoppingcart": {
+        "title": "LLista de la compra",
+        "product": "Poducte",
+        "price": "Preu",
+        "quantity": "Quantitat",
+        "total": "Total",
+        "delete": "Eliminar",
+        "pay": "Pagar",
+        "nothing": "No tens res en el carro",
+        "return": "Tornar a la pagina principal",
+        "alert1": "Segur que vols elimiar ",
+        "alert2": " del teu carro de la compra?"
     }
 }

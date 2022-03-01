@@ -20,5 +20,18 @@
         "delete-account": "Delte account",
         "del-are-you-sure": "Once deleted your account, you won't be able to see your buying records nor solicitate information from your bought products",
         "del-question": "Are you sure?"
+    },
+    "shoppingcart": {
+        "title": "Shopping Cart",
+        "product": "Poduct",
+        "price": "Price",
+        "quantity": "Quantity",
+        "total": "Total",
+        "delete": "Delete",
+        "pay": "Pay",
+        "nothing": "You don't have anything in your Cart",
+        "return": "Return to homepage",
+        "alert1": "Are you sure you want to delete: ",
+        "alert2": " from your Shopping Cart?"
     }
 }
