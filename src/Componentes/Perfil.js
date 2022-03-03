@@ -45,8 +45,12 @@ export const Perfil = () => {
                         <div className="col-md-7 col-12">
                             <h2>Datos:</h2>
                             <div className="row justify-content-between">
-                                <img src={default_profile_foto} width="200px" />
-                                <ul className="list-group">
+                                <img
+                                    className="col-4 imgProfile"
+                                    src={default_profile_foto}
+                                    alt="your foto"
+                                />
+                                <ul className="col-6 list-group">
                                     <li className="list-group-item align-item-left">
                                         <b> UserName</b> :{" "}
                                         {resultadoUsuarioSeguro.Nombre}
@@ -60,7 +64,9 @@ export const Perfil = () => {
                         </div>
                         <div className="col-md-5 col-12">
                             <h2 align="center"> Historial de compras</h2>
-                            <div>De momento no has comprado nada</div>
+                            <div className="HistorialCompras">
+                                De momento no has comprado nada
+                            </div>
                         </div>
                     </div>
                     <div className="row d-flex justify-content-between pb-5">

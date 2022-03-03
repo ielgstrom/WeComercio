@@ -132,7 +132,7 @@ h1 .defaultearLink.titulo {
         margin-left: auto !important;
         margin-right: auto !important;
         position: relative;
-        right: 8%;
+        /* right: 8%; */
     }
 
     .botonConfig {
@@ -317,6 +317,16 @@ img {
     height: auto;
     object-fit: cover;
     transition: all 0.2s ease-out;
+}
+.imgProfile {
+    height: 100% !important;
+}
+.HistorialCompras {
+    border: 1px solid rgb(174, 174, 174);
+    border-radius: 10px;
+    padding: 5px 15px;
+    padding-bottom: 20px;
+    background-color: rgb(232, 232, 232);
 }
 .productoIndividual.productoIndividual {
     padding-left: 0;
@@ -579,6 +589,16 @@ input[type="number"] {
         color: red !important;
         /* font-size: 1rem !important; */
     }
+    .footerAdress {
+        display: none;
+    }
+    .contacteFooter li {
+        display: block;
+        text-align: center;
+        padding-left: 70px;
+        font-size: 0.6em;
+        font-weight: normal;
+    }
 }
 @media (max-width: 992px) {
     .contenidoCentral {
@@ -587,6 +607,7 @@ input[type="number"] {
     }
     .imagenProducto {
         transform: scale(1);
+        transform: translateY(-40px);
     }
     .loginInicioContra,
     .loginInicioUser {
@@ -614,6 +635,9 @@ input[type="number"] {
     }
 }
 @media (max-width: 768px) {
+    .footerSomos {
+        display: none;
+    }
     p {
         font-size: 1rem;
     }
@@ -623,6 +647,10 @@ input[type="number"] {
     .contenidoCentral {
         margin-left: 20px;
         margin-right: 20px;
+    }
+    .contenidoCentralIndividual {
+        margin-left: auto;
+        margin-right: auto;
     }
     .dropdownMenu {
         width: 90%;

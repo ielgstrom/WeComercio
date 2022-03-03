@@ -84,7 +84,7 @@ export const ListaCarrito = () => {
     return (
         <>
             <Header />
-            <div className="container contenidoCentralIndividual">
+            <div className=" contenidoCentral">
                 <h2 className="tituloListaCompra">{t("shoppingcart.title")}</h2>
                 {listaCarrito.length !== 0 && (
                     <div>

@@ -46,6 +46,7 @@ export const ComprarAhora = () => {
             );
             const productos = await respuesta.json();
             setProductoIndividualYSimilares(productos);
+
             if ((await estaLogueado) === false) {
                 alert("Haz inicio de sesión para comprar");
                 history.push("/newuser");
@@ -117,13 +118,13 @@ export const ComprarAhora = () => {
                                 type="radio"
                                 id="blankRadio0"
                                 value="option1"
-                                aria-label="..."
+                                required
                             />
                             <label
                                 className="form-check-label ml-2"
                                 HtmlFor="blankRadio0"
                             >
-                                Default radio
+                                Tajeta de Credito
                             </label>
                         </div>
                         <div className="my-2 form-check">
@@ -135,16 +136,28 @@ export const ComprarAhora = () => {
                                 value="option2"
                                 aria-label="..."
                             />
+                            <label
+                                className="form-check-label ml-2"
+                                HtmlFor="blankRadio1"
+                            >
+                                Pay-Pal
+                            </label>
                         </div>
                         <div className="my-2 form-check">
                             <input
                                 className="my-2 form-check-input position-static"
                                 name="inlineRadioOptions"
                                 type="radio"
-                                id="blankRadio1"
+                                id="blankRadio2"
                                 value="option3"
                                 aria-label="..."
                             />
+                            <label
+                                className="form-check-label ml-2"
+                                HtmlFor="blankRadio2"
+                            >
+                                Descuentos
+                            </label>
                         </div>
                         <h3>Recogida de producto</h3>
                         <div class="my-2 form-check">
