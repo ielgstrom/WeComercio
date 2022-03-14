@@ -86,28 +86,6 @@ export const ComprarAhora = () => {
         <>
             <Header />
             <div className="contenidoCentral container-fluid">
-                <div
-                    className="btn-toolbar mx-5 rounded"
-                    role="toolbar"
-                    aria-label="Toolbar with button groups"
-                >
-                    <div
-                        className="btn-group mr-2 w-100 "
-                        role="group"
-                        aria-label="First group"
-                    >
-                        <button
-                            type="button"
-                            className="btn btn-secondary"
-                            disabled
-                        >
-                            1
-                        </button>
-                        <button type="button" className="btn btn-secondary">
-                            2
-                        </button>
-                    </div>
-                </div>
                 <div className="row mt-3 mx-5 justify-content-between">
                     <div className="col-12 col-lg-7 border contenidoIzquieroCompra p-3 mb-6">
                         <h3>Metodos de pago:</h3>

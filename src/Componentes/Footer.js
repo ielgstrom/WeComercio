@@ -12,7 +12,12 @@ export const Footer = () => {
                         <ul className="footerSomos">Ideales</ul>
                         <ul className="footerSomos">Dirección</ul>
                     </li>
-                    <li className="col-12 col-md-4">Coleciones</li>
+                    <li className="col-12 col-md-4">
+                        Coleciones
+                        <ul className="footerSomos">Verano</ul>
+                        <ul className="footerSomos">Invierno</ul>
+                        <ul className="footerSomos">Vacio</ul>
+                    </li>
                     <li className="col-12 col-md-4">
                         Contacte
                         <ul className="contacteFooter row">

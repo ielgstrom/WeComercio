@@ -21,17 +21,24 @@ export const SettingsUser = () => {
     };
     const delUser = async (e) => {
         e.preventDefault();
-        await fetch(`https://back-wecomerce.herokuapp.com/usuario/delete`, {
-            method: "DELETE",
-            body: JSON.stringify({
-                Email: resultadoUsuarioSeguro.Email,
-                Contraseña: valuePass,
-            }),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-        desloguearse();
+        const respuesta = await fetch(
+            `https://back-wecomerce.herokuapp.com/usuario/delete`,
+            {
+                method: "DELETE",
+                body: JSON.stringify({
+                    Email: resultadoUsuarioSeguro.Email,
+                    Contraseña: valuePass,
+                }),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+        if (respuesta.ok) {
+            desloguearse();
+        } else {
+            alert("Ha ocurrido un error, vuelve a intentar");
+        }
     };
     return (
         <>

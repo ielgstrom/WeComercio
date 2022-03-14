@@ -583,6 +583,12 @@ input[type="number"] {
 }
 .loginIconoMobil {
     margin: 0 auto;
+    /* margin-left: 50px; */
+    margin-right: auto;
+    position: relative;
+    /* left: 100%; */
+    /* right: auto; */
+    top: 8px;
 }
 @media (max-width: 1357px) {
     .small.footerAdress {
