@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { ProductosContext } from "../ProductosContext";
 import { useTranslation } from "react-i18next";
 export const ProductosPrincipales = () => {
-    const [t, i18n] = useTranslation("global");
+    const [t] = useTranslation("global");
     const { listaProductos } = useContext(ProductosContext);
 
     return (
@@ -41,28 +41,26 @@ export const ProductosPrincipales = () => {
                     )}
 
                     {listaProductos.map((producto) => (
-                        <>
-                            <Link
-                                className="productoIndividual col-12 col-md-6 col-lg-4 "
-                                type="button"
-                                to={`/producto/${producto._id}`}
-                                key={producto._id}
-                            >
-                                <img
-                                    src={producto.urlImage}
-                                    className="imagenMostrador"
-                                    alt="imagen"
-                                />
-                                <div className="flex-container space-between">
-                                    <small className="flex-item">
-                                        {producto.Nombre}
-                                    </small>
-                                    <small className="flex-item">
-                                        {`${producto.Precio}€`}
-                                    </small>
-                                </div>
-                            </Link>
-                        </>
+                        <Link
+                            className="productoIndividual col-12 col-md-6 col-lg-4 "
+                            type="button"
+                            to={`/producto/${producto._id}`}
+                            key={producto._id}
+                        >
+                            <img
+                                src={producto.urlImage}
+                                className="imagenMostrador"
+                                alt="imagen"
+                            />
+                            <div className="flex-container space-between">
+                                <small className="flex-item">
+                                    {producto.Nombre}
+                                </small>
+                                <small className="flex-item">
+                                    {`${producto.Precio}€`}
+                                </small>
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </div>

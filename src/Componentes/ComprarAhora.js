@@ -1,10 +1,8 @@
 import Footer from "./Footer";
 import Header from "./Header";
 import { useContext, useState, useEffect } from "react";
-import { Link, useHistory, NavLink, useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { ProductosContext } from "../ProductosContext";
-import pan from "../pandoras_box.jpg";
-import { MdAndroid } from "react-icons/md";
 import { BiLinkExternal } from "react-icons/bi";
 export const ComprarAhora = () => {
     let history = useHistory();

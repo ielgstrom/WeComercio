@@ -3,7 +3,7 @@ import jwt_decode from "jwt-decode";
 import Footer from "./Footer";
 import Header from "./Header";
 import { FiSettings } from "react-icons/fi";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useHistory, Link } from "react-router-dom";
 import default_profile_foto from "../default_profile_foto.png";
 export const Perfil = () => {

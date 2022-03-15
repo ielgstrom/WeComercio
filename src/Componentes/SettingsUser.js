@@ -3,9 +3,9 @@ import jwt_decode from "jwt-decode";
 import { useTranslation } from "react-i18next";
 import { useState, useContext } from "react";
 import { ProductosContext } from "../ProductosContext";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 export const SettingsUser = () => {
-    const [t, i18n] = useTranslation("global");
+    const [t] = useTranslation("global");
     const { setEstaLogueado } = useContext(ProductosContext);
     const [valuePass, setValuePass] = useState("");
     const token = localStorage.getItem("token");
@@ -38,6 +38,7 @@ export const SettingsUser = () => {
             desloguearse();
         } else {
             alert("Ha ocurrido un error, vuelve a intentar");
+            setValuePass("");
         }
     };
     return (
@@ -69,7 +70,7 @@ export const SettingsUser = () => {
                             data-parent="#accordionExample"
                         >
                             <div className="card-body">
-                                <div class="custom-control custom-switch m-3">
+                                <div className="custom-control custom-switch m-3">
                                     <input
                                         type="checkbox"
                                         className="custom-control-input"
@@ -77,7 +78,7 @@ export const SettingsUser = () => {
                                     />
                                     <label
                                         className="custom-control-label"
-                                        for="customSwitchModoOscuro"
+                                        htmlFor="customSwitchModoOscuro"
                                     >
                                         {t("settings.dark-mode")}
                                     </label>
@@ -90,7 +91,7 @@ export const SettingsUser = () => {
                                     />
                                     <label
                                         className="custom-control-label"
-                                        for="customSwitchRastreo"
+                                        htmlFor="customSwitchRastreo"
                                     >
                                         {t("settings.save-cookies")}
                                     </label>
@@ -121,47 +122,47 @@ export const SettingsUser = () => {
                         >
                             <div className="card-body">
                                 <h5>{t("settings.avaliable-Lang")} </h5>
-                                <div class="form-check form-check-inline">
+                                <div className="form-check form-check-inline">
                                     <input
-                                        class="form-check-input"
+                                        className="form-check-input"
                                         type="radio"
                                         name="inlineRadioOptions"
                                         id="inlineRadio1"
                                         value="option1"
                                     />
                                     <label
-                                        class="form-check-label"
-                                        for="inlineRadio1"
+                                        className="form-check-label"
+                                        htmlFor="inlineRadio1"
                                     >
                                         ES
                                     </label>
                                 </div>
-                                <div class="form-check form-check-inline">
+                                <div className="form-check form-check-inline">
                                     <input
-                                        class="form-check-input"
+                                        className="form-check-input"
                                         type="radio"
                                         name="inlineRadioOptions"
                                         id="inlineRadio2"
                                         value="option2"
                                     />
                                     <label
-                                        class="form-check-label"
-                                        for="inlineRadio2"
+                                        className="form-check-label"
+                                        htmlFor="inlineRadio2"
                                     >
                                         CAT
                                     </label>
                                 </div>
-                                <div class="form-check form-check-inline">
+                                <div className="form-check form-check-inline">
                                     <input
-                                        class="form-check-input"
+                                        className="form-check-input"
                                         type="radio"
                                         name="inlineRadioOptions"
                                         id="inlineRadio3"
                                         value="option3"
                                     />
                                     <label
-                                        class="form-check-label"
-                                        for="inlineRadio3"
+                                        className="form-check-label"
+                                        htmlFor="inlineRadio3"
                                     >
                                         ENG
                                     </label>
@@ -252,32 +253,32 @@ export const SettingsUser = () => {
                     </div>
                     {/* Modal */}
                     <div
-                        class="modal fade"
+                        className="modal fade"
                         id="exampleModal"
-                        tabindex="-1"
+                        tabIndex="-1"
                         role="dialog"
                         aria-labelledby="exampleModalLabel"
                         aria-hidden="true"
                     >
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
+                        <div className="modal-dialog" role="document">
+                            <div className="modal-content">
+                                <div className="modal-header">
                                     <h5
-                                        class="modal-title"
+                                        className="modal-title"
                                         id="exampleModalLabel"
                                     >
                                         Confirmación
                                     </h5>
                                     <button
                                         type="button"
-                                        class="close"
+                                        className="close"
                                         data-dismiss="modal"
                                         aria-label="Close"
                                     >
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="modal-body">
+                                <div className="modal-body">
                                     Escribe tu contraseña para confirmar el
                                     proceso
                                 </div>
@@ -289,21 +290,21 @@ export const SettingsUser = () => {
                                         value={valuePass}
                                         onChange={handleLastPass}
                                     />
-                                    <div class="modal-footer">
+                                    <div className="modal-footer">
                                         <button
                                             type="button"
-                                            class="btn btn-secondary"
+                                            className="btn btn-secondary"
                                             data-dismiss="modal"
                                         >
                                             Cerrar
                                         </button>
                                         <button
                                             type="submit"
-                                            class="btn btn-danger"
+                                            className="btn btn-danger"
                                             onClick={delUser}
                                             data-dismiss="modal"
                                         >
-                                            Eliminar cuenta
+                                            {t("settings.delete-account")}
                                         </button>
                                     </div>
                                 </form>

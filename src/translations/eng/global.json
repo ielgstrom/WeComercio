@@ -33,5 +33,13 @@
         "return": "Return to homepage",
         "alert1": "Are you sure you want to delete: ",
         "alert2": " from your Shopping Cart?"
+    },
+    "headerTOP": {
+        "placeholder": "Search Product",
+        "CursedObject": "Cursed Object",
+        "BlessedObject": "Blessed Object",
+        "UniverseFragments": "Fragments from the Universe",
+        "RemainGod": "Remains of Gods",
+        "unknown": "Unknown"
     }
 }

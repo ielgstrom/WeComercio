@@ -18,8 +18,8 @@ function App() {
         <ModeladoContext>
             <Router>
                 <ScrollToTop />
-                <Switch>
-                    <div className="cuerpoCentral">
+                <div className="cuerpoCentral">
+                    <Switch>
                         <Route
                             exact
                             path="/"
@@ -46,9 +46,9 @@ function App() {
                             path="/settings"
                             component={SettingsUser}
                         />
-                    </div>
-                    <Route exact path="*" component={Pag404} />
-                </Switch>
+                        <Route exact path="*" component={Pag404} />
+                    </Switch>
+                </div>
             </Router>
         </ModeladoContext>
     );

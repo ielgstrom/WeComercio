@@ -1,4 +1,3 @@
-import pandoras_box from "../pandoras_box.jpg";
 import { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import Header from "./Header";

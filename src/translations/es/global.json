@@ -33,5 +33,13 @@
         "return": "Volver a la pagina principal",
         "alert1": "Seguro que quieres elimiar ",
         "alert2": " de tu carrito de la compra?"
+    },
+    "headerTOP": {
+        "placeholder": "Buscar Producto",
+        "CursedObject": "Objeto Maldito",
+        "BlessedObject": "Objeto Bendecido",
+        "UniverseFragments": "Fragmentos del Universo",
+        "RemainGod": "Resto de Dioses",
+        "unknown": "Desconocido"
     }
 }

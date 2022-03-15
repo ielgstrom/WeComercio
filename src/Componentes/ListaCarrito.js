@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 export const ListaCarrito = () => {
-    const [t, i18n] = useTranslation("global");
+    const [t] = useTranslation("global");
     const { listaCarrito, setListaCarrito } = useContext(ProductosContext);
 
     const augmentarCantidad = (producto, index) => {
@@ -104,68 +104,62 @@ export const ListaCarrito = () => {
                             </h3>
                         </div>
                         {listaCarrito.map((producto, i) => (
-                            <>
-                                <div className="row productoIndivCompra align-items-center ">
-                                    <div className="col-4 col-md-6 nombreProductoCarrito">
-                                        {producto.Nombre}
-                                    </div>
-                                    <div className="col-2 col-md-1 p-0">{`${producto.Precio}€`}</div>
-                                    <div className="col-2 p-0">
-                                        <form>
-                                            <input
-                                                type="button"
-                                                value="-"
-                                                onClick={() =>
-                                                    disminuirCantidad(
-                                                        producto,
-                                                        i
-                                                    )
-                                                }
-                                                className="botonesMasMenosCarrito"
-                                            />
-                                            <input
-                                                type="number"
-                                                min={0}
-                                                max={10}
-                                                value={
-                                                    listaCarrito[i]
-                                                        .numerodeCompras
-                                                }
-                                                className="imputnumber"
-                                                // onChange={() =>
-                                                //     escribirCantidad(producto, i)
-                                                // }
-                                            />
-                                            <input
-                                                type="button"
-                                                value="+"
-                                                onClick={() =>
-                                                    augmentarCantidad(
-                                                        producto,
-                                                        i
-                                                    )
-                                                }
-                                                className="botonesMasMenosCarrito"
-                                            />
-                                        </form>
-                                    </div>
-                                    <div className="col-2 col-md-1 p-0">
-                                        {`${
-                                            producto.Precio *
-                                            listaCarrito[i].numerodeCompras
-                                        }€`}
-                                    </div>
-                                    <div className="col-2">
-                                        <BiX
-                                            type="button"
-                                            className="eliminarDeCarrito"
-                                            onClick={() =>
-                                                eliminarElemento(producto)
-                                            }
-                                        />
-                                    </div>
+                            <div
+                                className="row productoIndivCompra align-items-center"
+                                key={i}
+                            >
+                                <div className="col-4 col-md-6 nombreProductoCarrito">
+                                    {producto.Nombre}
                                 </div>
-                            </>
+                                <div className="col-2 col-md-1 p-0">{`${producto.Precio}€`}</div>
+                                <div className="col-2 p-0">
+                                    <form>
+                                        <input
+                                            type="button"
+                                            value="-"
+                                            onClick={() =>
+                                                disminuirCantidad(producto, i)
+                                            }
+                                            className="botonesMasMenosCarrito"
+                                        />
+                                        <input
+                                            type="number"
+                                            min={0}
+                                            max={10}
+                                            value={
+                                                listaCarrito[i].numerodeCompras
+                                            }
+                                            className="imputnumber"
+                                            // onChange={() =>
+                                            //     escribirCantidad(producto, i)
+                                            // }
+                                        />
+                                        <input
+                                            type="button"
+                                            value="+"
+                                            onClick={() =>
+                                                augmentarCantidad(producto, i)
+                                            }
+                                            className="botonesMasMenosCarrito"
+                                        />
+                                    </form>
+                                </div>
+                                <div className="col-2 col-md-1 p-0">
+                                    {`${
+                                        producto.Precio *
+                                        listaCarrito[i].numerodeCompras
+                                    }€`}
+                                </div>
+                                <div className="col-2">
+                                    <BiX
+                                        type="button"
+                                        className="eliminarDeCarrito"
+                                        onClick={() =>
+                                            eliminarElemento(producto)
+                                        }
+                                    />
+                                </div>
+                            </div>
                         ))}
                         <h2 className="preciofinal">{`${t(
                             "shoppingcart.pay"

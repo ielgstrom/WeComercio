@@ -33,5 +33,13 @@
         "return": "Tornar a la pagina principal",
         "alert1": "Segur que vols elimiar ",
         "alert2": " del teu carro de la compra?"
+    },
+    "headerTOP": {
+        "placeholder": "Buscar Producte",
+        "CursedObject": "Objecte Maleit",
+        "BlessedObject": "Objecte Beneit",
+        "UniverseFragments": "Fragments de l'Univers",
+        "RemainGod": "Resta de Deus",
+        "unknown": "Desconegut"
     }
 }

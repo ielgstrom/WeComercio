@@ -1,6 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { useParams, Link, useHistory } from "react-router-dom";
-import pandoras_box from "../pandoras_box.jpg";
+import { useParams, Link } from "react-router-dom";
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { MdAddShoppingCart } from "react-icons/md";
 import { BiGift } from "react-icons/bi";
@@ -10,7 +9,6 @@ import { ProductosContext } from "../ProductosContext";
 
 export const ProductoIndividual = () => {
     const { listaCarrito, setListaCarrito } = useContext(ProductosContext);
-    let history = useHistory();
     const { idprod } = useParams();
 
     const añadirElementoACarrito = (nuevoElemento) => {
@@ -161,28 +159,26 @@ export const ProductoIndividual = () => {
                             <h2 className="col-12 mt-4">{`Productos Parecidos`}</h2>
                             {ProductoIndividualYSimilares.productosSugeridos.map(
                                 (producto) => (
-                                    <>
-                                        <Link
-                                            className="productoIndividual col-12 col-md-6 col-lg-4 "
-                                            type="button"
-                                            to={`/producto/${producto._id}`}
-                                            key={producto._id}
-                                        >
-                                            <img
-                                                src={producto.urlImage}
-                                                className="imagenMostrador"
-                                                alt="imagen"
-                                            />
-                                            <div className="flex-container space-between">
-                                                <small className="flex-item">
-                                                    {producto.Nombre}
-                                                </small>
-                                                <small className="flex-item">
-                                                    {`${producto.Precio}€`}
-                                                </small>
-                                            </div>
-                                        </Link>
-                                    </>
+                                    <Link
+                                        className="productoIndividual col-12 col-md-6 col-lg-4 "
+                                        type="button"
+                                        to={`/producto/${producto._id}`}
+                                        key={producto._id}
+                                    >
+                                        <img
+                                            src={producto.urlImage}
+                                            className="imagenMostrador"
+                                            alt="imagen"
+                                        />
+                                        <div className="flex-container space-between">
+                                            <small className="flex-item">
+                                                {producto.Nombre}
+                                            </small>
+                                            <small className="flex-item">
+                                                {`${producto.Precio}€`}
+                                            </small>
+                                        </div>
+                                    </Link>
                                 )
                             )}
                         </div>

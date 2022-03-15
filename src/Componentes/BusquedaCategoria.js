@@ -22,28 +22,26 @@ export const BusquedaCategoria = () => {
                 <h2>Todos los productos de {idCateg.replaceAll("-", " ")}</h2>
                 <div className="row">
                     {prodCategoria.map((productoBuscado) => (
-                        <>
-                            <Link
-                                className="productoIndividual col-12 col-md-6 col-lg-4 "
-                                type="button"
-                                to={`/producto/${productoBuscado._id}`}
-                                key={productoBuscado._id}
-                            >
-                                <img
-                                    src={productoBuscado.urlImage}
-                                    className="imagenMostrador"
-                                    alt="imagen"
-                                />
-                                <div className="flex-container space-between">
-                                    <small className="flex-item">
-                                        {productoBuscado.Nombre}
-                                    </small>
-                                    <small className="flex-item">
-                                        {`${productoBuscado.Precio}€`}
-                                    </small>
-                                </div>
-                            </Link>
-                        </>
+                        <Link
+                            className="productoIndividual col-12 col-md-6 col-lg-4 "
+                            type="button"
+                            to={`/producto/${productoBuscado._id}`}
+                            key={productoBuscado._id}
+                        >
+                            <img
+                                src={productoBuscado.urlImage}
+                                className="imagenMostrador"
+                                alt="imagen"
+                            />
+                            <div className="flex-container space-between">
+                                <small className="flex-item">
+                                    {productoBuscado.Nombre}
+                                </small>
+                                <small className="flex-item">
+                                    {`${productoBuscado.Precio}€`}
+                                </small>
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </div>

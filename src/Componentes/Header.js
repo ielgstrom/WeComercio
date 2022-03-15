@@ -95,7 +95,7 @@ export const Header = () => {
                             <input
                                 type="text"
                                 className="form-control"
-                                placeholder="Buscar Producto"
+                                placeholder={t("headerTOP.placeholder")}
                                 value={textBuscador.busqueda}
                                 onChange={handleSearchChange}
                                 formAction="/producto/0"
@@ -190,36 +190,31 @@ export const Header = () => {
                             className="defaultearLink dropdown-item"
                             to="/busquedaCategorias/Objeto-maldito"
                         >
-                            {" "}
-                            Objeto maldito
+                            {t("headerTOP.CursedObject")}
                         </Link>
                         <Link
                             className="defaultearLink dropdown-item"
                             to="/busquedaCategorias/Objeto-bendecido"
                         >
-                            {" "}
-                            Objeto bendecido
+                            {t("headerTOP.BlessedObject")}
                         </Link>
                         <Link
                             className="defaultearLink dropdown-item"
                             to="/busquedaCategorias/Fragmentos-del-Universo"
                         >
-                            {" "}
-                            Fragmentos del Universo
+                            {t("headerTOP.UniverseFragments")}
                         </Link>
                         <Link
                             className="defaultearLink dropdown-item"
                             to="/busquedaCategorias/Resto-de-Dioses"
                         >
-                            {" "}
-                            Resto de Dioses
+                            {t("headerTOP.RemainGod")}
                         </Link>
                         <Link
                             className="defaultearLink dropdown-item"
                             to="/busquedaCategorias/Desconocido"
                         >
-                            {" "}
-                            Desconocido
+                            {t("headerTOP.unknown")}
                         </Link>
                     </div>
                 </div>
@@ -232,7 +227,7 @@ export const Header = () => {
                         aria-expanded="false"
                     />
                     <div
-                        class="dropdown-menu dropdownLang"
+                        className="dropdown-menu dropdownLang"
                         aria-labelledby="dropdownLangButton"
                     >
                         <small
