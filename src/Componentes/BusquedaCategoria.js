@@ -21,6 +21,13 @@ export const BusquedaCategoria = () => {
             <div className="contenidoCentral">
                 <h2>Todos los productos de {idCateg.replaceAll("-", " ")}</h2>
                 <div className="row">
+                    {prodCategoria[0] === undefined && (
+                        <>
+                            <div className="productoIndividualLoad col-12 col-md-6 col-lg-4"></div>
+                            <div className="productoIndividualLoad col-12 col-md-6 col-lg-4"></div>
+                            <div className="productoIndividualLoad col-12 col-md-6 col-lg-4"></div>
+                        </>
+                    )}
                     {prodCategoria.map((productoBuscado) => (
                         <Link
                             className="productoIndividual col-12 col-md-6 col-lg-4 "

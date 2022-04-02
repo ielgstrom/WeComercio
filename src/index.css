@@ -405,6 +405,7 @@ small {
 }
 .listaMainFooter {
     padding: 0 !important;
+    margin-bottom: 0 !important;
 }
 .listaMainFooter > li {
     font-size: 1.5rem;
