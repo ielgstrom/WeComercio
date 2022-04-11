@@ -4,12 +4,13 @@ import { ProductosContext } from "../ProductosContext";
 import { useContext } from "react";
 import { BiX } from "react-icons/bi";
 import { BiGift } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 export const ListaCarrito = () => {
     const [t] = useTranslation("global");
-    const { listaCarrito, setListaCarrito } = useContext(ProductosContext);
+    const { listaCarrito, setListaCarrito, estaLogueado } =
+        useContext(ProductosContext);
 
     const augmentarCantidad = (producto, index) => {
         if (listaCarrito[index].numerodeCompras <= producto.Stock - 1) {
@@ -42,6 +43,14 @@ export const ListaCarrito = () => {
                     ...listaCarrito.slice(index + 1),
                 ];
             });
+        }
+    };
+
+    const redirectIfNotSession = () => {
+        if (!estaLogueado) {
+            //history.push("/newuser");
+            alert("Please, initiate session");
+            return <Redirect to="/newuser" />;
         }
     };
 
@@ -170,6 +179,7 @@ export const ListaCarrito = () => {
                                 className="col-10 col-md- 5  align-self-center botonAñadirCarrito botonPagarFinal"
                                 type="button"
                                 to="/buynow"
+                                onClick={redirectIfNotSession}
                             >
                                 <BiGift className="botonHoverAble" />{" "}
                                 {t("shoppingcart.pay")}

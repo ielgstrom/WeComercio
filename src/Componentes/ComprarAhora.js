@@ -83,7 +83,7 @@ export const ComprarAhora = () => {
     return (
         <>
             <Header />
-            <div className="contenidoCentral container-fluid">
+            <div className="contenidoCentral buynow container-fluid">
                 <div className="row mt-3 mx-5 justify-content-between">
                     <div className="col-12 col-lg-7 border contenidoIzquieroCompra p-3 mb-6">
                         <h3>Metodos de pago:</h3>

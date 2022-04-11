@@ -94,6 +94,10 @@ h1 .defaultearLink.titulo {
     padding-bottom: 200px;
     z-index: 0;
 }
+.contenidoCentral.buynow {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
 .contenidoCentralIndividual {
     margin-right: auto;
     margin-left: auto;
