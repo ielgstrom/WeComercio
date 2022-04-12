@@ -2,9 +2,11 @@ import Footer from "./Footer";
 import Header from "./Header";
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 export const BusquedaCategoria = () => {
     let { idCateg } = useParams();
     const [prodCategoria, setProdCategoria] = useState([]);
+    const [t] = useTranslation("global");
     useEffect(() => {
         const fetchData = async () => {
             const respuesta = await fetch(
@@ -19,7 +21,9 @@ export const BusquedaCategoria = () => {
         <>
             <Header />
             <div className="contenidoCentral">
-                <h2>Todos los productos de {idCateg.replaceAll("-", " ")}</h2>
+                <h2>
+                    {t("categorie.title")} "{idCateg.replaceAll("-", " ")}"
+                </h2>
                 <div className="row">
                     {prodCategoria[0] === undefined && (
                         <>

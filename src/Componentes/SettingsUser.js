@@ -1,11 +1,12 @@
 import Header from "./Header";
 import jwt_decode from "jwt-decode";
-import { useTranslation } from "react-i18next";
+import { useTranslation, withTranslation } from "react-i18next";
 import { useState, useContext } from "react";
 import { ProductosContext } from "../ProductosContext";
 import { useHistory } from "react-router-dom";
+import i18next from "i18next";
 export const SettingsUser = () => {
-    const [t] = useTranslation("global");
+    const [t, i18n] = useTranslation("global");
     const { setEstaLogueado } = useContext(ProductosContext);
     const [valuePass, setValuePass] = useState("");
     const token = localStorage.getItem("token");
@@ -129,12 +130,16 @@ export const SettingsUser = () => {
                                         name="inlineRadioOptions"
                                         id="inlineRadio1"
                                         value="option1"
+                                        checked={i18next.language === "es"}
+                                        onClick={() =>
+                                            i18n.changeLanguage("es")
+                                        }
                                     />
                                     <label
                                         className="form-check-label"
                                         htmlFor="inlineRadio1"
                                     >
-                                        ES
+                                        {t("langsettings.es")}
                                     </label>
                                 </div>
                                 <div className="form-check form-check-inline">
@@ -144,12 +149,16 @@ export const SettingsUser = () => {
                                         name="inlineRadioOptions"
                                         id="inlineRadio2"
                                         value="option2"
+                                        checked={i18next.language === "cat"}
+                                        onClick={() =>
+                                            i18n.changeLanguage("cat")
+                                        }
                                     />
                                     <label
                                         className="form-check-label"
                                         htmlFor="inlineRadio2"
                                     >
-                                        CAT
+                                        {t("langsettings.cat")}
                                     </label>
                                 </div>
                                 <div className="form-check form-check-inline">
@@ -159,12 +168,16 @@ export const SettingsUser = () => {
                                         name="inlineRadioOptions"
                                         id="inlineRadio3"
                                         value="option3"
+                                        checked={i18next.language === "eng"}
+                                        onClick={() =>
+                                            i18n.changeLanguage("eng")
+                                        }
                                     />
                                     <label
                                         className="form-check-label"
                                         htmlFor="inlineRadio3"
                                     >
-                                        ENG
+                                        {t("langsettings.en")}
                                     </label>
                                 </div>
                             </div>

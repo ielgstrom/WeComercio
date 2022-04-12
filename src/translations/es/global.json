@@ -41,5 +41,13 @@
         "UniverseFragments": "Fragmentos del Universo",
         "RemainGod": "Resto de Dioses",
         "unknown": "Desconocido"
+    },
+    "categorie": {
+        "title": "Todos los productos de "
+    },
+    "langsettings": {
+        "cat": "Catalan",
+        "es": "Español",
+        "en": "Ingles"
     }
 }

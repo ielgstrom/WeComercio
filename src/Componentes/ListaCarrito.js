@@ -178,12 +178,15 @@ export const ListaCarrito = () => {
                             <Link
                                 className="col-10 col-md- 5  align-self-center botonAñadirCarrito botonPagarFinal"
                                 type="button"
-                                to="/buynow"
+                                to="/Carrito"
+                                //Modificar direccion al acabar los detalles
                                 onClick={redirectIfNotSession}
+                                disabled
                             >
                                 <BiGift className="botonHoverAble" />{" "}
                                 {t("shoppingcart.pay")}
                             </Link>
+                            <small>Feature not finished, in developement</small>
                         </div>
                     </div>
                 )}

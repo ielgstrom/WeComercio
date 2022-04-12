@@ -41,5 +41,13 @@
         "UniverseFragments": "Fragments de l'Univers",
         "RemainGod": "Resta de Deus",
         "unknown": "Desconegut"
+    },
+    "categorie": {
+        "title": "Tots els productes de"
+    },
+    "langsettings": {
+        "cat": "Català",
+        "es": "Espanyol",
+        "en": "Anglès"
     }
 }

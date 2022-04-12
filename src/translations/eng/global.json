@@ -10,7 +10,7 @@
         "dark-mode": "Change to Dark Mode (In development)",
         "save-cookies": "Save Cookies (In development)",
         "prefered-Lang": "Prefered Language",
-        "avaliable-Lang": "Languages avaliables:",
+        "avaliable-Lang": "Languages avaliable:",
         "Who-are-we": "Who are we?",
         "des-who-are-we": "I'm a programmer doing my projects",
         "objective": "What's the goal of this page?",
@@ -41,5 +41,13 @@
         "UniverseFragments": "Fragments from the Universe",
         "RemainGod": "Remains of Gods",
         "unknown": "Unknown"
+    },
+    "categorie": {
+        "title": "All products of "
+    },
+    "langsettings": {
+        "cat": "Catalan",
+        "es": "Spanish",
+        "en": "English"
     }
 }
